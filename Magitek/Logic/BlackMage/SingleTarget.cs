@@ -5,9 +5,9 @@ using Magitek.Models.BlackMage;
 using Magitek.Utilities;
 using System.Linq;
 using System.Threading.Tasks;
-using Auras = Magitek.Utilities.Auras;
 using static ff14bot.Managers.ActionResourceManager.BlackMage;
 using static Magitek.Utilities.MagitekActionResourceManager.BlackMage;
+using Auras = Magitek.Utilities.Auras;
 
 namespace Magitek.Logic.BlackMage
 {
@@ -27,7 +27,7 @@ namespace Magitek.Logic.BlackMage
 
             if (Casting.LastSpell == Spells.Xenoglossy)
                 return false;
-            
+
             //If we don't have Xeno, Foul is single target
             if (Core.Me.ClassLevel < 80
                 && UmbralStacks == 3)
@@ -78,7 +78,7 @@ namespace Magitek.Logic.BlackMage
             // If our mana is lower than 2400
             if (Core.Me.CurrentMana < 2400 && Core.Me.CurrentMana != 0)
                 return await Spells.Despair.Cast(Core.Me.CurrentTarget);
-            
+
             return false;
         }
 
@@ -217,7 +217,7 @@ namespace Magitek.Logic.BlackMage
             // If we have thunder cloud, but we don't have at least 5 seconds of it left, use the proc
             if (Core.Me.HasAura(Auras.ThunderCloud) && !Core.Me.HasAura(Auras.ThunderCloud, true, 5500))
                 return await Spells.Thunder3.Cast(Core.Me.CurrentTarget);
-            
+
             // If we need to refresh stack timer, stop
             if (StackTimer.TotalMilliseconds <= 5500)
                 return false;
@@ -245,7 +245,7 @@ namespace Magitek.Logic.BlackMage
                         && Casting.LastSpell == Spells.Blizzard3
                         && UmbralStacks == 3)
                     return await Spells.Thunder3.Cast(Core.Me.CurrentTarget);
-                
+
                 if (Core.Me.HasAura(Auras.ThunderCloud))
                     return await Spells.Thunder.Cast(Core.Me.CurrentTarget);
 
@@ -259,7 +259,7 @@ namespace Magitek.Logic.BlackMage
             // If we have the triplecast aura, stop
             if (Core.Me.HasAura(Auras.Triplecast))
                 return false;
-            
+
             //Moved this up to see if it stops the doublecast
             if (Casting.LastSpell == Spells.Thunder3)
                 return false;
@@ -315,7 +315,7 @@ namespace Magitek.Logic.BlackMage
             if (BlackMageSettings.Instance.UseAoe
                 && Core.Me.CurrentTarget.EnemiesNearby(10).Count() >= BlackMageSettings.Instance.AoeEnemies)
                 return false;
-            
+
             //35-59 logic
             if (Core.Me.ClassLevel >= 35
                && Core.Me.ClassLevel <= 59)
@@ -323,10 +323,10 @@ namespace Magitek.Logic.BlackMage
                 if (AstralStacks > 0 && Core.Me.CurrentMana < 1600)
                     return await Spells.Blizzard3.Cast(Core.Me.CurrentTarget);
             }
-                // If we have no umbral or astral stacks, cast 
-                if (AstralStacks <= 0 && UmbralStacks == 0)
+            // If we have no umbral or astral stacks, cast 
+            if (AstralStacks <= 0 && UmbralStacks == 0)
                 return await Spells.Blizzard3.Cast(Core.Me.CurrentTarget);
-            
+
             //Post 72 logic
             if (Core.Me.ClassLevel > 71)
             {
@@ -340,7 +340,7 @@ namespace Magitek.Logic.BlackMage
                 return await Spells.Blizzard3.Cast(Core.Me.CurrentTarget);
 
             if (AstralStacks <= 1 && UmbralStacks <= 1)
-                return await Spells.Blizzard3.Cast(Core.Me.CurrentTarget);           
+                return await Spells.Blizzard3.Cast(Core.Me.CurrentTarget);
 
             return false;
         }
@@ -355,7 +355,7 @@ namespace Magitek.Logic.BlackMage
             {
                 if (Casting.LastSpell == Spells.Transpose && AstralStacks > 0)
                     return false;
-                
+
                 if (Core.Me.CurrentMana >= 9600 && UmbralStacks > 0)
                     return await Spells.Transpose.Cast(Core.Me);
 
@@ -367,7 +367,7 @@ namespace Magitek.Logic.BlackMage
 
                 return false;
             }
-             
+
             return false;
         }
         public static async Task<bool> ParadoxUmbral()
@@ -383,7 +383,7 @@ namespace Magitek.Logic.BlackMage
 
             //if (!Spells.Paradox.IsReady())
             //    return false;
-            
+
             //Better check would be to look for the paradox marker
             if (!Paradox)
                 return false;

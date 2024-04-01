@@ -5,7 +5,6 @@ using Magitek.Logic;
 using Magitek.Logic.Roles;
 using Magitek.Logic.Summoner;
 using Magitek.Models.Account;
-using Magitek.Models.BlackMage;
 using Magitek.Models.Summoner;
 using Magitek.Utilities;
 using System.Threading.Tasks;

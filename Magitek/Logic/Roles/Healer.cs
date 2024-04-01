@@ -157,7 +157,7 @@ namespace Magitek.Logic.Roles
         /****************************************************************************************************
          *                                                 PVP
          * **************************************************************************************************/
-        public static async Task<bool> Recuperate<T>(T settings) where T :HealerSettings
+        public static async Task<bool> Recuperate<T>(T settings) where T : HealerSettings
         {
             if (!settings.Pvp_UseRecuperate)
                 return false;

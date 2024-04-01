@@ -8,11 +8,10 @@ using Magitek.Models.Account;
 using Magitek.Models.BlackMage;
 using Magitek.Models.RedMage;
 using Magitek.Utilities;
-using RedMageRoutine = Magitek.Utilities.Routines.RedMage;
-using static Magitek.Logic.RedMage.Utility;
 using System.Linq;
 using System.Threading.Tasks;
-using Buddy.Coroutines;
+using static Magitek.Logic.RedMage.Utility;
+using RedMageRoutine = Magitek.Utilities.Routines.RedMage;
 
 namespace Magitek.Rotations
 {
@@ -31,8 +30,6 @@ namespace Magitek.Rotations
 
         public static async Task<bool> PreCombatBuff()
         {
-
-
             if (await Casting.TrackSpellCast())
                 return true;
 
@@ -57,8 +54,8 @@ namespace Magitek.Rotations
                     // attempt to move to melee if in combo and we got out of range somehow
 
                     if (Core.Me.ClassLevel < 2 || ShouldApproachForCombo())
-                        Movement.NavigateToUnitLos(Core.Me.CurrentTarget, Core.Me.CombatReach + Core.Me.CurrentTarget.CombatReach);
-                    
+                        Movement.NavigateToUnitLos(Core.Me.CurrentTarget, 3 + Core.Me.CurrentTarget.CombatReach);
+
                     else Movement.NavigateToUnitLos(Core.Me.CurrentTarget, 20 + Core.Me.CurrentTarget.CombatReach);
                 }
             }
@@ -87,7 +84,7 @@ namespace Magitek.Rotations
 
             if (!Core.Me.HasTarget || !Core.Me.CurrentTarget.ThoroughCanAttack())
                 return false;
-                       
+
             if (Core.Me.CurrentTarget.HasAnyAura(Auras.Invincibility))
                 return false;
 
@@ -135,7 +132,7 @@ namespace Magitek.Rotations
 
             //Combo
             if (await SingleTarget.ScorchResolutionCombo()) return true;
-            if (await Aoe.Moulinet()) return true;      
+            if (await Aoe.Moulinet()) return true;
             if (await SingleTarget.Reprise()) return true;
             if (await SingleTarget.Redoublement()) return true;
             if (await SingleTarget.Zwerchhau()) return true;
@@ -144,16 +141,16 @@ namespace Magitek.Rotations
             //Combo procs
             if (await SingleTarget.Verflare()) return true;
             if (await SingleTarget.Verholy()) return true;
-            
+
             //AoE
-            if (RedMageSettings.Instance.UseAoe && Core.Me.CurrentTarget.EnemiesNearby(8).Count() >= RedMageSettings.Instance.AoeEnemies)
+            if (RedMageSettings.Instance.UseAoe && Core.Me.CurrentTarget.EnemiesNearby(5).Count() >= RedMageSettings.Instance.AoeEnemies)
             {
-                
+
                 if (await Aoe.Impact()) return true;
                 if (await Aoe.Scatter()) return true;
                 if (await Aoe.Veraero2()) return true;
                 if (await Aoe.Verthunder2()) return true;
-                                               
+
             }
             //Single Target
             if (await SingleTarget.Verfire()) return true;
@@ -206,6 +203,6 @@ namespace Magitek.Rotations
         {
             if (!BaseSettings.Instance.ActivePvpCombatRoutine)
                 CombatMessages.RegisterCombatMessages(RdmStateMachine.StateMachine);
-        } 
+        }
     }
 }

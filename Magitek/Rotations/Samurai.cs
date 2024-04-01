@@ -8,10 +8,9 @@ using Magitek.Models.Account;
 using Magitek.Models.Samurai;
 using Magitek.Utilities;
 using Magitek.Utilities.CombatMessages;
-using SamuraiRoutine = Magitek.Utilities.Routines.Samurai;
 using System.Linq;
 using System.Threading.Tasks;
-using Magitek.Models.Monk;
+using SamuraiRoutine = Magitek.Utilities.Routines.Samurai;
 
 namespace Magitek.Rotations
 {
@@ -44,7 +43,7 @@ namespace Magitek.Rotations
 
         public static async Task<bool> Heal()
         {
-            if (await Casting.TrackSpellCast()) 
+            if (await Casting.TrackSpellCast())
                 return true;
 
             await Casting.CheckForSuccessfulCast();
@@ -183,7 +182,7 @@ namespace Magitek.Rotations
 
         public static async Task<bool> PvP()
         {
-            if(!BaseSettings.Instance.ActivePvpCombatRoutine)
+            if (!BaseSettings.Instance.ActivePvpCombatRoutine)
                 return await Combat();
 
             if (await PhysicalDps.Guard(SamuraiSettings.Instance)) return true;

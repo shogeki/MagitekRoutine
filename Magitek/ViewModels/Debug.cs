@@ -41,7 +41,7 @@ namespace Magitek.ViewModels
         public string IsBoss { get; set; }
 
         public string FightLogicData { get; set; }
-        
+
         public ObservableCollection<EnemyInfo> Enemies { get; set; } = new AsyncObservableCollection<EnemyInfo>();
         public ConcurrentObservableDictionary<uint, EnemySpellCastInfo> EnemySpellCasts { get; set; } = new ConcurrentObservableDictionary<uint, EnemySpellCastInfo>();
         public ConcurrentObservableDictionary<uint, TargetAuraInfo> EnemyAuras { get; set; } = new ConcurrentObservableDictionary<uint, TargetAuraInfo>();

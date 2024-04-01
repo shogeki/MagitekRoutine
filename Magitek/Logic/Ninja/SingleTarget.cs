@@ -1,10 +1,10 @@
-﻿using System.Threading.Tasks;
-using System.Linq;
-using System;
-using ff14bot;
+﻿using ff14bot;
 using ff14bot.Managers;
 using Magitek.Extensions;
 using Magitek.Utilities;
+using System;
+using System.Linq;
+using System.Threading.Tasks;
 using NinjaRoutine = Magitek.Utilities.Routines.Ninja;
 
 namespace Magitek.Logic.Ninja
@@ -66,9 +66,9 @@ namespace Magitek.Logic.Ninja
 
             if (ActionManager.LastSpell != Spells.GustSlash)
                 return false;
-            
+
             //Dont cast if current huton timer plus 30 seconds is greater than 60 seconds
-            if (ActionResourceManager.Ninja.HutonTimer.Add(new TimeSpan(0, 0, 30)) > new TimeSpan(0,1,0) )
+            if (ActionResourceManager.Ninja.HutonTimer.Add(new TimeSpan(0, 0, 30)) > new TimeSpan(0, 1, 0))
                 return false;
 
             if (ActionResourceManager.Ninja.HutonTimer > new TimeSpan(0, 16, 0) && Spells.TrickAttack.Cooldown > new TimeSpan(0, 0, 45))
@@ -82,7 +82,7 @@ namespace Magitek.Logic.Ninja
         }
 
         #endregion
-        
+
         //Missing logic for st and mt
         public static async Task<bool> Bhavacakra()
         {
@@ -97,7 +97,7 @@ namespace Magitek.Logic.Ninja
                 return await Spells.Bhavacakra.Cast(Core.Me.CurrentTarget);
 
             //dumping Bhavacakra during Burst Window is missing
-            if (MagitekActionResourceManager.Ninja.NinkiGauge < 90 || (Spells.Mug.Cooldown > new TimeSpan(0, 0, 7) && MagitekActionResourceManager.Ninja.NinkiGauge + 40 < 90 ))
+            if (MagitekActionResourceManager.Ninja.NinkiGauge < 90 || (Spells.Mug.Cooldown > new TimeSpan(0, 0, 7) && MagitekActionResourceManager.Ninja.NinkiGauge + 40 < 90))
                 return false;
 
             if (NinjaRoutine.AoeEnemies6Yards > 2 && !Core.Me.HasMyAura(Auras.Meisui)

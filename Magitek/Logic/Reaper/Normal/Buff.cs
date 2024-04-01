@@ -1,6 +1,5 @@
 ﻿using ff14bot;
 using Magitek.Extensions;
-using Magitek.Models.Reaper;
 using Magitek.Utilities;
 using System.Threading.Tasks;
 

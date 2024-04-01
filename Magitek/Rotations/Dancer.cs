@@ -7,9 +7,9 @@ using Magitek.Logic.Roles;
 using Magitek.Models.Account;
 using Magitek.Models.Dancer;
 using Magitek.Utilities;
-using DancerRoutine = Magitek.Utilities.Routines.Dancer;
 using System.Linq;
 using System.Threading.Tasks;
+using DancerRoutine = Magitek.Utilities.Routines.Dancer;
 
 namespace Magitek.Rotations
 {
@@ -117,8 +117,8 @@ namespace Magitek.Rotations
             if (Core.Me.HasAura(Auras.StandardStep) || Core.Me.HasAura(Auras.TechnicalStep))
                 return false;
 
-            if ( (DancerRoutine.GlobalCooldown.CanWeave() && !Casting.SpellCastHistory.Take(2).Any(s => s.Spell == Spells.Tillana || s.Spell == Spells.DoubleStandardFinish || s.Spell == Spells.QuadrupleTechnicalFinish))
-                || (DancerRoutine.GlobalCooldown.CanWeave(1) && Casting.SpellCastHistory.Take(2).Any(s => s.Spell == Spells.Tillana || s.Spell == Spells.DoubleStandardFinish || s.Spell == Spells.QuadrupleTechnicalFinish)) )
+            if ((DancerRoutine.GlobalCooldown.CanWeave() && !Casting.SpellCastHistory.Take(2).Any(s => s.Spell == Spells.Tillana || s.Spell == Spells.DoubleStandardFinish || s.Spell == Spells.QuadrupleTechnicalFinish))
+                || (DancerRoutine.GlobalCooldown.CanWeave(1) && Casting.SpellCastHistory.Take(2).Any(s => s.Spell == Spells.Tillana || s.Spell == Spells.DoubleStandardFinish || s.Spell == Spells.QuadrupleTechnicalFinish)))
             {
                 //utility
                 if (await PhysicalDps.Interrupt(DancerSettings.Instance)) return true;
@@ -195,7 +195,7 @@ namespace Magitek.Rotations
             if (await Pvp.FountainFall()) return true;
             if (await Pvp.ReverseCascade()) return true;
             if (await Pvp.Fountain()) return true;
-            
+
             return await Pvp.Cascade();
         }
     }

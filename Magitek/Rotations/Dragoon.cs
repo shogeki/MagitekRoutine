@@ -6,7 +6,6 @@ using Magitek.Logic.Dragoon;
 using Magitek.Logic.Roles;
 using Magitek.Models.Account;
 using Magitek.Models.Dragoon;
-using Magitek.Models.Monk;
 using Magitek.Utilities;
 using Magitek.Utilities.CombatMessages;
 using System;

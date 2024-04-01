@@ -2,15 +2,14 @@
 using ff14bot.Managers;
 using Magitek.Extensions;
 using Magitek.Logic;
+using Magitek.Logic.Roles;
 using Magitek.Logic.Scholar;
+using Magitek.Models.Account;
 using Magitek.Models.Scholar;
 using Magitek.Utilities;
-using ScholarRoutine = Magitek.Utilities.Routines.Scholar;
 using System.Linq;
 using System.Threading.Tasks;
-using Magitek.Models.Account;
-using Magitek.Logic.Roles;
-using Magitek.Models.Sage;
+using ScholarRoutine = Magitek.Utilities.Routines.Scholar;
 
 namespace Magitek.Rotations
 {
@@ -213,7 +212,7 @@ namespace Magitek.Rotations
                     Movement.NavigateToUnitLos(Core.Me.CurrentTarget, 20 + Core.Me.CurrentTarget.CombatReach);
             }
 
-            if (await Casting.TrackSpellCast()) 
+            if (await Casting.TrackSpellCast())
                 return true;
 
             await Casting.CheckForSuccessfulCast();

@@ -1,8 +1,6 @@
 using ff14bot;
-using ff14bot.Managers;
 using ff14bot.Objects;
 using Magitek.Extensions;
-using Magitek.Models.Gunbreaker;
 using Magitek.Models.Paladin;
 using Magitek.Utilities;
 using System.Linq;
@@ -31,9 +29,6 @@ namespace Magitek.Logic.Paladin
                 return false;
 
             if (Combat.Enemies.Count(x => x.Distance(Core.Me) <= Spells.CircleofScorn.Radius + x.CombatReach) < 1)
-                return false;
-
-            if (!PaladinRoutine.GlobalCooldown.CanDoubleWeave() || !PaladinRoutine.GlobalCooldown.CanWeave(2))
                 return false;
 
             return await Spells.CircleofScorn.Cast(Core.Me);

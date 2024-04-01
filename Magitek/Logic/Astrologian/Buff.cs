@@ -1,13 +1,13 @@
 using Buddy.Coroutines;
 using ff14bot;
+using ff14bot.Managers;
 using ff14bot.Objects;
 using Magitek.Extensions;
 using Magitek.Models.Astrologian;
 using Magitek.Utilities;
-using ff14bot.Managers;
 using System.Linq;
 using System.Threading.Tasks;
-using AstroUtils =  Magitek.Utilities.Routines.Astrologian;
+using AstroUtils = Magitek.Utilities.Routines.Astrologian;
 using Auras = Magitek.Utilities.Auras;
 
 namespace Magitek.Logic.Astrologian
@@ -48,9 +48,9 @@ namespace Magitek.Logic.Astrologian
             if (Globals.InParty)
             {
                 if (AstrologianSettings.Instance.FightLogic_Lightspeed && FightLogic.EnemyIsCastingBigAoe() && !Spells.NeutralSect.IsKnownAndReady() && !Spells.Macrocosmos.IsKnownAndReady())
-                    return await FightLogic.DoAndBuffer(Spells.Lightspeed.CastAura(Core.Me,Auras.Lightspeed));
+                    return await FightLogic.DoAndBuffer(Spells.Lightspeed.CastAura(Core.Me, Auras.Lightspeed));
 
-                             if (AstrologianSettings.Instance.LightspeedTankOnly && Group.CastableTanks.All(r => r.CurrentHealthPercent >= AstrologianSettings.Instance.LightspeedHealthPercent))
+                if (AstrologianSettings.Instance.LightspeedTankOnly && Group.CastableTanks.All(r => r.CurrentHealthPercent >= AstrologianSettings.Instance.LightspeedHealthPercent))
                     return false;
 
                 if (Group.CastableAlliesWithin15.Count(r => r.CurrentHealthPercent <= AstrologianSettings.Instance.LightspeedHealthPercent) > Heals.AoeThreshold)
@@ -64,10 +64,10 @@ namespace Magitek.Logic.Astrologian
         public static async Task<bool> Divination()
         {
             if (!AstrologianSettings.Instance.Divination)
-               
+
                 return false;
 
-            
+
             if (!Spells.Divination.IsKnownAndReady())
                 return false;
 
@@ -120,15 +120,15 @@ namespace Magitek.Logic.Astrologian
         {
             if (!AstrologianSettings.Instance.NeutralSect)
                 return false;
-            
+
             if (!Core.Me.InCombat)
                 return false;
 
             if (!Spells.NeutralSect.IsKnownAndReady())
                 return false;
-            
-            if (AstrologianSettings.Instance.FightLogic_NeutralSectAspectedHelios && FightLogic.EnemyIsCastingBigAoe() && (AstrologianSettings.Instance.FightLogic_Macrocosmos && !Spells.Macrocosmos.IsKnownAndReady()) && !Core.Me.HasAnyAura(AstroUtils.ScholarAndSageShieldsNotToOverwrite)) 
-                return await FightLogic.DoAndBuffer(Spells.NeutralSect.CastAura(Core.Me,Auras.NeutralSect));
+
+            if (AstrologianSettings.Instance.FightLogic_NeutralSectAspectedHelios && FightLogic.EnemyIsCastingBigAoe() && (AstrologianSettings.Instance.FightLogic_Macrocosmos && !Spells.Macrocosmos.IsKnownAndReady()) && !Core.Me.HasAnyAura(AstroUtils.ScholarAndSageShieldsNotToOverwrite))
+                return await FightLogic.DoAndBuffer(Spells.NeutralSect.CastAura(Core.Me, Auras.NeutralSect));
 
             var neutral = Group.CastableAlliesWithin15.Count(r => r.CurrentHealth > 0
             && r.CurrentHealthPercent <= AstrologianSettings.Instance.NeutralSectHealthPercent);
@@ -136,7 +136,7 @@ namespace Magitek.Logic.Astrologian
             if (neutral < AoeThreshold)
                 return false;
 
-            return await Spells.NeutralSect.CastAura(Core.Me,Auras.NeutralSect);
+            return await Spells.NeutralSect.CastAura(Core.Me, Auras.NeutralSect);
         }
     }
 }

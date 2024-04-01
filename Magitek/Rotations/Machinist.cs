@@ -7,10 +7,10 @@ using Magitek.Logic.Roles;
 using Magitek.Models.Account;
 using Magitek.Models.Machinist;
 using Magitek.Utilities;
-using MachinistRoutine = Magitek.Utilities.Routines.Machinist;
 using System;
-using System.Threading.Tasks;
 using System.Linq;
+using System.Threading.Tasks;
+using MachinistRoutine = Magitek.Utilities.Routines.Machinist;
 
 namespace Magitek.Rotations
 {
@@ -115,7 +115,8 @@ namespace Magitek.Rotations
 
             if (ActionResourceManager.Machinist.OverheatRemaining != TimeSpan.Zero)
             {
-                if (MachinistRoutine.GlobalCooldown.CanWeave(1)) {
+                if (MachinistRoutine.GlobalCooldown.CanWeave(1))
+                {
                     //Utility
                     if (await PhysicalDps.ArmsLength(MachinistSettings.Instance)) return true;
                     if (await PhysicalDps.Interrupt(MachinistSettings.Instance)) return true;
@@ -126,15 +127,16 @@ namespace Magitek.Rotations
                     //Cooldowns
                     if (await Cooldowns.BarrelStabilizer()) return true;
                     //if (await Cooldowns.Reassemble()) return true;
-                    
+
                     //oGCDs
                     if (await SingleTarget.GaussRound()) return true;
                     if (await MultiTarget.Ricochet()) return true;
                 }
-            } 
+            }
             else
             {
-                if (MachinistRoutine.GlobalCooldown.CanWeave()) {
+                if (MachinistRoutine.GlobalCooldown.CanWeave())
+                {
                     //Utility
                     if (await PhysicalDps.ArmsLength(MachinistSettings.Instance)) return true;
                     if (await Utility.Tactician()) return true;
@@ -169,7 +171,7 @@ namespace Magitek.Rotations
             if (await SingleTarget.HotAirAnchor()) return true;
             if (await SingleTarget.Drill()) return true;
             if (await MultiTarget.ChainSaw()) return true;
-            
+
             //AOE
             if (await MultiTarget.Flamethrower()) return true;
             if (await MultiTarget.Scattergun()) return true;

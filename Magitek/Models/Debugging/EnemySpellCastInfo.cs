@@ -68,6 +68,6 @@ namespace Magitek.Models.Debugging
             {
                 InterruptsAndStuns.Instance.ActionList.Add(newXivItem);
             });
-        }); 
+        });
     }
 }

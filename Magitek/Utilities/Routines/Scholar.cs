@@ -87,7 +87,7 @@ namespace Magitek.Utilities.Routines
                 return;
 
             EnemiesInCone = Core.Me.EnemiesInCone(8);
-           
+
         }
     }
 }

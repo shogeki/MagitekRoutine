@@ -7,8 +7,8 @@ using Magitek.Logic.Roles;
 using Magitek.Models.Account;
 using Magitek.Models.Gunbreaker;
 using Magitek.Utilities;
-using GunbreakerRoutine = Magitek.Utilities.Routines.Gunbreaker;
 using System.Threading.Tasks;
+using GunbreakerRoutine = Magitek.Utilities.Routines.Gunbreaker;
 using Healing = Magitek.Logic.Gunbreaker.Heal;
 
 namespace Magitek.Rotations
@@ -85,7 +85,7 @@ namespace Magitek.Rotations
             if (Core.Me.CurrentTarget.HasAnyAura(Auras.Invincibility))
                 return false;
 
-            if (await CustomOpenerLogic.Opener()) 
+            if (await CustomOpenerLogic.Opener())
                 return true;
 
             //LimitBreak

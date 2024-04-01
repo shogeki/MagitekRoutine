@@ -113,7 +113,7 @@ namespace Magitek.Logic.Paladin
                     && DivineMightAura != null && DivineMightAura.TimespanLeft.TotalMilliseconds >= (4 * PaladinRoutine.GCDTimeMilliseconds))
                     return false;
 
-                if (Spells.FightorFlight.IsReady((int) PaladinRoutine.GCDTimeMilliseconds)
+                if (Spells.FightorFlight.IsReady((int)PaladinRoutine.GCDTimeMilliseconds)
                     && DivineMightAura != null && DivineMightAura.TimespanLeft.TotalMilliseconds >= (3 * PaladinRoutine.GCDTimeMilliseconds))
                     return false;
             }
@@ -124,14 +124,15 @@ namespace Magitek.Logic.Paladin
         {
             if (!PaladinSettings.Instance.UseIntervene)
                 return false;
-            
+
             if (!Spells.Intervene.IsKnown())
                 return false;
 
-            if (Spells.FightorFlight.IsKnown() && !Core.Me.HasAura(Auras.FightOrFlight))
+            if (!Core.Me.HasAura(Auras.FightOrFlight))
                 return false;
 
-            if (Spells.Requiescat.IsKnown() && !Core.Me.HasAura(Auras.Requiescat))
+
+            if (!Core.Me.HasAura(Auras.Requiescat))
                 return false;
 
             if (PaladinRoutine.RequiescatStackCount >= 4)
@@ -155,7 +156,7 @@ namespace Magitek.Logic.Paladin
             /*if (Combat.Enemies.Count(x => x.Distance(Core.Me) <= 5 + x.CombatReach) >= PaladinSettings.Instance.TotalEclipseEnemies)
                 return await Spells.Requiescat.Cast(Core.Me.CurrentTarget);
             */
-            if (Casting.LastSpell != Spells.FightorFlight)
+            if (!Core.Me.HasAura(Auras.FightOrFlight))
                 return false;
 
             return await Spells.Requiescat.Cast(Core.Me.CurrentTarget);
@@ -177,14 +178,14 @@ namespace Magitek.Logic.Paladin
             {
                 var SwordOathRemainingStack = Core.Me.CharacterAuras.GetAuraStacksById(Auras.SwordOath);
                 Aura SwordOathAura = (Core.Me as Character).Auras.FirstOrDefault(x => x.Id == Auras.SwordOath && x.CasterId == Core.Player.ObjectId);
-                
-                if (SwordOathRemainingStack == 2 
-                    && Spells.FightorFlight.IsReady( ((int)PaladinRoutine.GCDTimeMilliseconds) * 2)
+
+                if (SwordOathRemainingStack == 2
+                    && Spells.FightorFlight.IsReady(((int)PaladinRoutine.GCDTimeMilliseconds) * 2)
                     && SwordOathAura != null && SwordOathAura.TimespanLeft.TotalMilliseconds >= (4 * PaladinRoutine.GCDTimeMilliseconds))
                     return false;
-                
-                if (SwordOathRemainingStack == 1 
-                    && Spells.FightorFlight.IsReady( (int)PaladinRoutine.GCDTimeMilliseconds)
+
+                if (SwordOathRemainingStack == 1
+                    && Spells.FightorFlight.IsReady((int)PaladinRoutine.GCDTimeMilliseconds)
                     && SwordOathAura != null && SwordOathAura.TimespanLeft.TotalMilliseconds >= (3 * PaladinRoutine.GCDTimeMilliseconds))
                     return false;
             }

@@ -41,7 +41,7 @@ namespace Magitek.Utilities.Routines
         {
             return (Spells.GnashingFang.IsKnown() && Core.Me.HasAura(Auras.ReadytoRip))
                 || (Spells.SavageClaw.IsKnown() && Core.Me.HasAura(Auras.ReadytoTear))
-                || (Spells.WickedTalon.IsKnown() && Core.Me.HasAura(Auras.ReadytoGouge)) 
+                || (Spells.WickedTalon.IsKnown() && Core.Me.HasAura(Auras.ReadytoGouge))
                 || (Spells.BurstStrike.IsKnown() && Core.Me.HasAura(Auras.ReadytoBlast));
         }
 

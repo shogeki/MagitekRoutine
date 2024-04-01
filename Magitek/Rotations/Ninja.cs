@@ -7,13 +7,11 @@ using Magitek.Logic.Roles;
 using Magitek.Models.Account;
 using Magitek.Models.Ninja;
 using Magitek.Utilities;
-using NinjaRoutine = Magitek.Utilities.Routines.Ninja;
+using Magitek.Utilities.GamelogManager;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
-using Magitek.Utilities.GamelogManager;
-using ff14bot.Helpers;
-using System.Windows.Forms;
-using System;
+using NinjaRoutine = Magitek.Utilities.Routines.Ninja;
 
 namespace Magitek.Rotations
 {
@@ -44,7 +42,7 @@ namespace Magitek.Rotations
             if (await Ninjutsu.PrePullHutonRamp()) return true;
             if (await Ninjutsu.PrePullHutonUse()) return true;
             if (await Utility.PrePullHide()) return true;
-            
+
             if (await Ninjutsu.PrePullSuitonRamp()) return true;
             if (await Ninjutsu.PrePullSuitonUse()) return true;
 
@@ -88,7 +86,7 @@ namespace Magitek.Rotations
                 return await PvP();
 
             Utilities.Routines.Ninja.RefreshVars();
-            
+
             if (BotManager.Current.IsAutonomous)
             {
                 if (Core.Me.HasTarget)
@@ -106,7 +104,7 @@ namespace Magitek.Rotations
             if (!Core.Me.HasTarget || !Core.Me.CurrentTarget.ThoroughCanAttack())
                 return false;
 
-            if (await CustomOpenerLogic.Opener()) 
+            if (await CustomOpenerLogic.Opener())
                 return true;
 
             if (!Core.Me.HasTarget || !Core.Me.CurrentTarget.ThoroughCanAttack())
@@ -165,7 +163,7 @@ namespace Magitek.Rotations
             if (await SingleTarget.SpinningEdge()) return true;
 
             return false;
-            
+
         }
 
         public static async Task<bool> PvP()
@@ -177,7 +175,8 @@ namespace Magitek.Rotations
             if (await PhysicalDps.Purify(NinjaSettings.Instance)) return true;
             if (await PhysicalDps.Recuperate(NinjaSettings.Instance)) return true;
 
-            if (!PhysicalDps.GuardCheck()) { 
+            if (!PhysicalDps.GuardCheck())
+            {
                 if (await Pvp.SeitonTenchuPvp()) return true;
                 if (await Pvp.AssassinatePvp()) return true;
                 if (await Pvp.FleetingRaijuPvp()) return true;

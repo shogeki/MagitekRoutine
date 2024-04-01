@@ -5,9 +5,9 @@ using Magitek.Extensions;
 using Magitek.Logic.Roles;
 using Magitek.Models.Bard;
 using Magitek.Utilities;
-using BardRoutine = Magitek.Utilities.Routines.Bard;
 using System.Linq;
 using System.Threading.Tasks;
+using BardRoutine = Magitek.Utilities.Routines.Bard;
 
 namespace Magitek.Logic.Bard
 {
@@ -94,7 +94,7 @@ namespace Magitek.Logic.Bard
                     return false;
             }
 
-            if (BardSettings.Instance.UseBarrageOnlyWithBuff && !BardRoutine.IsUnderBuffWindow )
+            if (BardSettings.Instance.UseBarrageOnlyWithBuff && !BardRoutine.IsUnderBuffWindow)
                 return false;
 
             return await Spells.Barrage.CastAura(Core.Me, Auras.Barrage);
@@ -111,7 +111,7 @@ namespace Magitek.Logic.Bard
             if (ActionResourceManager.Bard.ActiveSong != ActionResourceManager.Bard.BardSong.WanderersMinuet)
                 return false;
 
-            if (Spells.RagingStrikes.IsKnown() && Spells.RagingStrikes.Cooldown.TotalMilliseconds > 116000) 
+            if (Spells.RagingStrikes.IsKnown() && Spells.RagingStrikes.Cooldown.TotalMilliseconds > 116000)
                 return false;
 
             if (!Core.Me.HasAura(Auras.RagingStrikes))

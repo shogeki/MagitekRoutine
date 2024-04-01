@@ -1,11 +1,8 @@
 using ff14bot;
 using ff14bot.Managers;
-using ff14bot.Objects;
 using Magitek.Extensions;
-using Magitek.Models.Dancer;
 using Magitek.Models.Scholar;
 using Magitek.Utilities;
-using Magitek.Utilities.Managers;
 using System.Linq;
 using System.Threading.Tasks;
 using Auras = Magitek.Utilities.Auras;
@@ -116,7 +113,7 @@ namespace Magitek.Logic.Scholar
                 return false;
 
             if (!Core.Me.HasAura(Auras.PvpCatalyze))
-                 return false;
+                return false;
 
             if (!Core.Me.HasAura(Auras.PvpCatalyze, true, 14000))
                 return false;

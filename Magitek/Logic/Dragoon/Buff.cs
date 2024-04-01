@@ -1,5 +1,4 @@
 ﻿using ff14bot;
-using ff14bot.Enums;
 using ff14bot.Managers;
 using ff14bot.Objects;
 using Magitek.Enumerations;
@@ -104,7 +103,7 @@ namespace Magitek.Logic.Dragoon
                 {
                     case DragonSightStrategy.Self:
                         return await Spells.DragonSight.Cast(Core.Me);
-                    
+
                     case DragonSightStrategy.ClosestDps:
                         allyList = Group.CastableAlliesWithin12.Where(a => a != null && a.IsAlive && a.IsVisible && !a.IsMe && a.IsDps()).OrderBy(DragoonRoutine.GetWeight);
                         break;
@@ -145,7 +144,7 @@ namespace Magitek.Logic.Dragoon
             if (!DragoonSettings.Instance.ForceDragonSight)
                 return false;
 
-            if (!await DragonSight()) 
+            if (!await DragonSight())
                 return false;
 
             DragoonSettings.Instance.ForceDragonSight = false;

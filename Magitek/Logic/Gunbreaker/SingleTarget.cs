@@ -58,7 +58,7 @@ namespace Magitek.Logic.Gunbreaker
             //if no target found, then check if current target is not pulled yet
             if (lightningShotTarget == null)
             {
-                lightningShotTarget = (BattleCharacter) Core.Me.CurrentTarget;
+                lightningShotTarget = (BattleCharacter)Core.Me.CurrentTarget;
 
                 if (!lightningShotTarget.ValidAttackUnit()
                     || !lightningShotTarget.NotInvulnerable()

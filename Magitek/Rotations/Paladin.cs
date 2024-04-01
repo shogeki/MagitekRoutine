@@ -3,15 +3,14 @@ using ff14bot.Managers;
 using Magitek.Extensions;
 using Magitek.Logic;
 using Magitek.Logic.Paladin;
+using Magitek.Logic.Roles;
 using Magitek.Models.Account;
 using Magitek.Models.Paladin;
 using Magitek.Utilities;
-using PaladinRoutine = Magitek.Utilities.Routines.Paladin;
-using Healing = Magitek.Logic.Paladin.Heal;
 using System.Threading.Tasks;
 using Auras = Magitek.Utilities.Auras;
-using Magitek.Logic.Roles;
-using Magitek.Models.DarkKnight;
+using Healing = Magitek.Logic.Paladin.Heal;
+using PaladinRoutine = Magitek.Utilities.Routines.Paladin;
 
 namespace Magitek.Rotations
 {

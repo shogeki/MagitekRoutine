@@ -3,9 +3,9 @@ using ff14bot.Managers;
 using Magitek.Extensions;
 using Magitek.Models.Monk;
 using Magitek.Utilities;
-using MonkRoutine = Magitek.Utilities.Routines.Monk;
 using System.Linq;
 using System.Threading.Tasks;
+using MonkRoutine = Magitek.Utilities.Routines.Monk;
 
 namespace Magitek.Logic.Monk
 {

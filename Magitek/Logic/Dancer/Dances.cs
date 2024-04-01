@@ -5,7 +5,6 @@ using ff14bot.Objects;
 using Magitek.Extensions;
 using Magitek.Models.Dancer;
 using Magitek.Utilities;
-using System;
 using System.Linq;
 using System.Threading.Tasks;
 using Auras = Magitek.Utilities.Auras;
@@ -16,7 +15,7 @@ namespace Magitek.Logic.Dancer
     {
         public static async Task<bool> Tillana()
         {
-            if (Core.Me.ClassLevel < Spells.Tillana.LevelAcquired) 
+            if (Core.Me.ClassLevel < Spells.Tillana.LevelAcquired)
                 return false;
 
             if (!Core.Me.HasAura(Auras.FlourishingFinish))
@@ -25,7 +24,7 @@ namespace Magitek.Logic.Dancer
             if (Core.Me.HasAura(Auras.StandardStep) || Core.Me.HasAura(Auras.TechnicalStep))
                 return false;
 
-            if (!Core.Me.HasAura(Auras.Devilment)) 
+            if (!Core.Me.HasAura(Auras.Devilment))
                 return false;
 
             if (Spells.Flourish.IsKnownAndReady())

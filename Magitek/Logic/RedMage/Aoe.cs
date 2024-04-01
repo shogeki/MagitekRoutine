@@ -1,14 +1,14 @@
 ﻿using ff14bot;
+using ff14bot.Managers;
+using Magitek.Extensions;
+using Magitek.Logic.Roles;
 using Magitek.Models.RedMage;
 using Magitek.Utilities;
-using Magitek.Extensions;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using Magitek.Logic.Roles;
 using static ff14bot.Managers.ActionResourceManager.RedMage;
 using static Magitek.Logic.RedMage.Utility;
-using ff14bot.Managers;
 
 namespace Magitek.Logic.RedMage
 {
@@ -18,7 +18,7 @@ namespace Magitek.Logic.RedMage
         {
             if (!RedMageSettings.Instance.UseAoe)
                 return false;
-                        
+
             if (!RedMageSettings.Instance.Moulinet)
                 return false;
 
@@ -32,11 +32,11 @@ namespace Magitek.Logic.RedMage
 
             bool Combo = InAoeCombo();
 
-            if (!Combo && Core.Me.EnemiesInCone(8 + Core.Me.CombatReach) < RedMageSettings.Instance.AoeEnemies)
+            if (!Combo && Core.Me.EnemiesInCone(8 + Core.Me.CurrentTarget.CombatReach) < RedMageSettings.Instance.AoeEnemies)
                 return false;
 
             //Hopefully cast 3 moulinet in a row so we can combo
-            if (!Combo && (WhiteMana < 60 || BlackMana < 60))
+            if (!Combo && (WhiteMana < 60 || BlackMana < 60) || ManaStacks() < 3)
                 return false;
 
             return await Spells.Moulinet.Cast(Core.Me.CurrentTarget);
@@ -67,7 +67,7 @@ namespace Magitek.Logic.RedMage
         {
             if (!RedMageSettings.Instance.Scatter)
                 return false;
-                        
+
             if (Core.Me.ClassLevel < Spells.Scatter.LevelAcquired)
                 return false;
 
@@ -137,7 +137,7 @@ namespace Magitek.Logic.RedMage
 
             if (BlackMana > WhiteMana)
                 return false;
-            
+
             return await Spells.Verthunder2.Cast(Core.Me.CurrentTarget);
         }
         public static async Task<bool> Veraero2()
@@ -167,11 +167,11 @@ namespace Magitek.Logic.RedMage
 
             return await Spells.Veraero2.Cast(Core.Me.CurrentTarget);
         }
-        
-            /**********************************************************************************************
-            *                              Limit Break
-            * ********************************************************************************************/
-            public static bool ForceLimitBreak()
+
+        /**********************************************************************************************
+        *                              Limit Break
+        * ********************************************************************************************/
+        public static bool ForceLimitBreak()
         {
             return MagicDps.ForceLimitBreak(Spells.Skyshard, Spells.Starstorm, Spells.Meteor, Spells.Blizzard);
         }

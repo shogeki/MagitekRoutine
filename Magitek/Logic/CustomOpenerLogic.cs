@@ -24,7 +24,7 @@ namespace Magitek.Logic
         private static Gambit _executingGambit = null;
         private static Stopwatch GambitTimer { get; set; }
 
-        
+
         internal static async Task<bool> Opener()
         {
             // Reset Openers from the overlay
@@ -108,7 +108,8 @@ namespace Magitek.Logic
             #region Check Conditions Pre-Opener Countdown
             if (_executingGambit.Conditions.Any(condition => "Magitek.Gambits.Conditions.CountdownTimerCondition".Equals(condition.ToString())))
             {
-                if (!CheckConditions()) {
+                if (!CheckConditions())
+                {
                     return true;
                 }
             }

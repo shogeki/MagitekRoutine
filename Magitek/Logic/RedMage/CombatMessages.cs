@@ -1,13 +1,10 @@
-﻿using ff14bot;
-using Magitek.Extensions;
+﻿using Magitek.Extensions;
 using Magitek.Models.RedMage;
 using Magitek.Utilities;
-using Magitek.Utilities.CombatMessages;
 using Magitek.Utilities.Routines;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using static Magitek.Utilities.Routines.RedMage;
 
 namespace Magitek.Logic.RedMage
 {
@@ -19,7 +16,7 @@ namespace Magitek.Logic.RedMage
         {
             Func<bool> bossPresenceOk = () => !RedMageSettings.Instance.MeleeComboBossesOnly || Combat.Enemies.Any(e => e.IsBoss());
             Func<bool> InMeleeCombo = () => mComboStates.Contains(RdmStateMachine.StateMachine.CurrentState);
-            
+
             /* Glitchy, needs review
             //Highest priority: Don't show anything if we're not in combat
             CombatMessageManager.RegisterMessageStrategy(

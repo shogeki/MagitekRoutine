@@ -1,12 +1,10 @@
 ﻿using Buddy.Coroutines;
 using ff14bot;
-using ff14bot.Helpers;
 using ff14bot.Managers;
 using ff14bot.Objects;
 using Magitek.Models.Account;
 using Magitek.Utilities;
 using System;
-using System.Collections.Generic;
 using System.Globalization;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
@@ -196,7 +194,7 @@ namespace Magitek.Extensions
                 {
                     return false;
                 }
-                                
+
                 return true;
             }
 

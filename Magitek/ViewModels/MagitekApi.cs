@@ -54,7 +54,7 @@ namespace Magitek.ViewModels
         {
             var local = "UNKNOWN";
             var distant = "UNKNOWN";
-            
+
             try
             {
                 local = File.ReadAllText(Path.Combine(Environment.CurrentDirectory, $@"Routines\Magitek\Version.txt"));
@@ -98,7 +98,8 @@ namespace Magitek.ViewModels
                     {
                         if (x?.merged_at == null)
                             return;
-                        NewsList.Add(new MagitekNews{
+                        NewsList.Add(new MagitekNews
+                        {
                             Created = x.merged_at?.ToString("d"),
                             Title = "Changelog",
                             Message = "" + x.body
@@ -106,7 +107,7 @@ namespace Magitek.ViewModels
                     });
                 };
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Logger.Error(e.Message);
             }

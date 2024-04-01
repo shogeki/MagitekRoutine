@@ -174,7 +174,7 @@ namespace Magitek.Models.Machinist
 
         [Setting]
         [DefaultValue(2)]
-        public int  Pvp_BishopAutoturretNumberOfEnemy { get; set; }
+        public int Pvp_BishopAutoturretNumberOfEnemy { get; set; }
 
         [Setting]
         [DefaultValue(true)]

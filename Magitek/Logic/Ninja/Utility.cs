@@ -26,6 +26,6 @@ namespace Magitek.Logic.Ninja
             return await Spells.Hide.Cast(Core.Me);
 
         }
-        
+
     }
 }

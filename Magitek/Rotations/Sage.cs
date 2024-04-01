@@ -2,13 +2,13 @@
 using ff14bot.Managers;
 using Magitek.Extensions;
 using Magitek.Logic;
+using Magitek.Logic.Roles;
 using Magitek.Logic.Sage;
+using Magitek.Models.Account;
 using Magitek.Models.Sage;
 using Magitek.Utilities;
-using SageRoutine = Magitek.Utilities.Routines.Sage;
 using System.Threading.Tasks;
-using Magitek.Logic.Roles;
-using Magitek.Models.Account;
+using SageRoutine = Magitek.Utilities.Routines.Sage;
 
 namespace Magitek.Rotations
 {

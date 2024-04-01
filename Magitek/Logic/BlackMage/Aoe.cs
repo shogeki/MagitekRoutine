@@ -26,7 +26,7 @@ namespace Magitek.Logic.BlackMage
 
             if (Casting.LastSpell == Spells.Foul)
                 return false;
-            
+
             // If we need to refresh stack timer, stop
             if (StackTimer.TotalMilliseconds <= 5000)
                 return false;
@@ -51,7 +51,7 @@ namespace Magitek.Logic.BlackMage
                     && !Core.Me.HasAura(Auras.ThunderCloud))
                     return await Spells.Foul.Cast(Core.Me.CurrentTarget);
             }
-            
+
             //If at max polyglot stacks, cast
             if (PolyglotCount == 2
                 && Casting.LastSpell == Spells.Flare)
@@ -59,7 +59,7 @@ namespace Magitek.Logic.BlackMage
 
             //Only use in Umbral 3
             if (UmbralStacks != 3)
-                return false;            
+                return false;
 
             //If we have Umbral hearts, Freeze has gone off
             //Trying logic from xeno instead to see if this allows T4 to go off
@@ -69,13 +69,13 @@ namespace Magitek.Logic.BlackMage
             */
             //If while in Umbral 3 and, we didn't use Thunder in the Umbral window
             if (UmbralStacks == 3 && Casting.LastSpell != Spells.Thunder4)
-			{
+            {
                 //We don't have max mana
                 if (Core.Me.CurrentMana < 10000 && Core.Me.CurrentTarget.HasAura(Auras.Thunder4, true, 5000))
                     return await Spells.Foul.Cast(Core.Me.CurrentTarget);
 
                 return await Spells.Thunder4.Cast(Core.Me.CurrentTarget);
-            }			
+            }
 
             return false;
         }
@@ -169,7 +169,7 @@ namespace Magitek.Logic.BlackMage
         {
             if (!BlackMageSettings.Instance.ThunderSingle)
                 return false;
-            
+
             // If we need to refresh stack timer, stop
             if (StackTimer.TotalMilliseconds <= 5000)
                 return false;
@@ -231,8 +231,8 @@ namespace Magitek.Logic.BlackMage
             if (Core.Me.ClassLevel >= 72)
             {
                 if (Casting.LastSpell != Spells.Thunder4)
-                        return await Spells.Thunder4.Cast(Core.Me.CurrentTarget);
-                
+                    return await Spells.Thunder4.Cast(Core.Me.CurrentTarget);
+
             }
             return false;
         }
@@ -251,10 +251,10 @@ namespace Magitek.Logic.BlackMage
 
                 return false;
             }
-            
+
             // level 35-90 logic
             if (Core.Me.ClassLevel >= 35)
-                
+
             {
                 if (UmbralHearts == 1)
                     return false;
@@ -271,7 +271,7 @@ namespace Magitek.Logic.BlackMage
 
                     return false;
                 }
-                
+
                 if (Core.Me.CurrentMana > 3000)
                     return await Spells.Fire2.Cast(Core.Me.CurrentTarget);
 
@@ -289,8 +289,8 @@ namespace Magitek.Logic.BlackMage
                 if (Core.Me.CurrentMana < 3000)
                 {
                     if (AstralStacks > 0)
-                      await Spells.Transpose.Cast(Core.Me);
-                    
+                        await Spells.Transpose.Cast(Core.Me);
+
                     return await Spells.Blizzard2.Cast(Core.Me.CurrentTarget);
                 }
 

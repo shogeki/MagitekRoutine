@@ -4,13 +4,12 @@ using Magitek.Extensions;
 using Magitek.Logic;
 using Magitek.Logic.Roles;
 using Magitek.Logic.Warrior;
-using Healing = Magitek.Logic.Warrior.Heal;
 using Magitek.Models.Account;
 using Magitek.Models.Warrior;
 using Magitek.Utilities;
-using WarriorRoutine = Magitek.Utilities.Routines.Warrior;
 using System.Threading.Tasks;
-using Magitek.Models.Paladin;
+using Healing = Magitek.Logic.Warrior.Heal;
+using WarriorRoutine = Magitek.Utilities.Routines.Warrior;
 
 namespace Magitek.Rotations
 {

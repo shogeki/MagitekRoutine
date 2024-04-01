@@ -2,9 +2,9 @@
 using Magitek.Extensions;
 using Magitek.Models.Machinist;
 using Magitek.Utilities;
-using Auras = Magitek.Utilities.Auras;
 using System.Linq;
 using System.Threading.Tasks;
+using Auras = Magitek.Utilities.Auras;
 
 namespace Magitek.Logic.Machinist
 {
@@ -201,7 +201,7 @@ namespace Magitek.Logic.Machinist
             if (Core.Me.CurrentTarget.Distance(Core.Me) > 25)
                 return false;
 
-            if (Combat.Enemies.Count(x => x.Distance(Core.Me.CurrentTarget) < 5 ) < MachinistSettings.Instance.Pvp_BishopAutoturretNumberOfEnemy)
+            if (Combat.Enemies.Count(x => x.Distance(Core.Me.CurrentTarget) < 5) < MachinistSettings.Instance.Pvp_BishopAutoturretNumberOfEnemy)
                 return false;
 
             return await Spells.BishopAutoturretPvp.Cast(Core.Me.CurrentTarget);
@@ -218,12 +218,12 @@ namespace Magitek.Logic.Machinist
             if (!Spells.MarksmansSpitePvp.CanCast())
                 return false;
 
-            if(Core.Me.CurrentTarget.CurrentHealthPercent > MachinistSettings.Instance.Pvp_UseMarksmansSpiteHealthPercent)
+            if (Core.Me.CurrentTarget.CurrentHealthPercent > MachinistSettings.Instance.Pvp_UseMarksmansSpiteHealthPercent)
                 return false;
 
             return await Spells.MarksmansSpitePvp.Cast(Core.Me.CurrentTarget);
         }
 
-        
+
     }
 }

@@ -17,18 +17,18 @@ namespace Magitek.Logic.Reaper
             if (Core.Me.HasAura(Auras.TrueNorth))
                 return false;
 
-                if (ReaperSettings.Instance.TrueNorthWithSoulReaverOnly)
-                {
-                    if (!Core.Me.HasAura(Auras.SoulReaver))
-                        return false;
-                }
-                else
-                {
-                    if (ActionResourceManager.Reaper.SoulGauge < 40)
-                        return false;
-                    if (ActionResourceManager.Reaper.ShroudGauge >= 40)
-                        return false;
-                }
+            if (ReaperSettings.Instance.TrueNorthWithSoulReaverOnly)
+            {
+                if (!Core.Me.HasAura(Auras.SoulReaver))
+                    return false;
+            }
+            else
+            {
+                if (ActionResourceManager.Reaper.SoulGauge < 40)
+                    return false;
+                if (ActionResourceManager.Reaper.ShroudGauge >= 40)
+                    return false;
+            }
 
             if (Utilities.Routines.Reaper.EnemiesAroundPlayer5Yards >= ReaperSettings.Instance.SpinningScytheTargetCount) return false;
             if (Utilities.Routines.Reaper.EnemiesIn8YardCone >= ReaperSettings.Instance.GrimSwatheTargetCount) return false;

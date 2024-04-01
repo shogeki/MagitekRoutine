@@ -2,7 +2,6 @@
 using ff14bot.Managers;
 using Magitek.Extensions;
 using Magitek.Models.Machinist;
-using Magitek.Utilities;
 using System;
 using System.Threading.Tasks;
 using MachinistRoutine = Magitek.Utilities.Routines.Machinist;

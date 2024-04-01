@@ -1,6 +1,3 @@
-using System;
-using System.Reflection;
-using System.Runtime.Remoting.Lifetime;
 using ff14bot.Managers;
 using ff14bot.Objects;
 
@@ -1006,7 +1003,7 @@ namespace Magitek.Utilities
         public static readonly SpellData ConsolationPvp = DataManager.GetSpellData(29238);
         public static readonly SpellData SeraphicVeil = DataManager.GetSpellData(29240);
         public static readonly SpellData SummonSeraphPvp = DataManager.GetSpellData(29237);
-        
+
         //AST
         public static readonly SpellData FallMaleficPvp = DataManager.GetSpellData(29242);
         public static readonly SpellData AspectedBeneficPvp = DataManager.GetSpellData(29243);

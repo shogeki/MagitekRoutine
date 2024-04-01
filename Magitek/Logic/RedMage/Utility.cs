@@ -1,14 +1,8 @@
 ﻿using ff14bot;
 using ff14bot.Managers;
-using Magitek.Enumerations;
-using Magitek.Extensions;
-using Magitek.Models.Account;
 using Magitek.Models.RedMage;
 using Magitek.Utilities;
-using System;
 using System.Linq;
-using System.Threading.Tasks;
-using RedMageRoutine = Magitek.Utilities.Routines.RedMage;
 using static ff14bot.Managers.ActionResourceManager.RedMage;
 
 namespace Magitek.Logic.RedMage

@@ -132,7 +132,7 @@ namespace Magitek.Models.Scholar
         [Setting]
         [DefaultValue(false)]
         public bool AdloquiumTankForBuff { get; set; }
-        
+
         [Setting]
         [DefaultValue(true)]
         public bool AdloOutOfCombat { get; set; }
@@ -508,23 +508,23 @@ namespace Magitek.Models.Scholar
         [Setting]
         [DefaultValue(false)]
         public bool FightLogicExcogTank { get; set; }
-        
+
         [Setting]
         [DefaultValue(false)]
         public bool FightLogicAdloTank { get; set; }
-        
+
         [Setting]
         [DefaultValue(false)]
         public bool FightLogicSuccorAoe { get; set; }
-        
+
         [Setting]
         [DefaultValue(false)]
         public bool FightLogicAdloDeployBigAoe { get; set; }
-        
+
         [Setting]
         [DefaultValue(false)]
         public bool FightLogicRecitSuccorBigAoe { get; set; }
-        
+
         [Setting]
         [DefaultValue(false)]
         public bool FightLogicSoilBigAoe { get; set; }

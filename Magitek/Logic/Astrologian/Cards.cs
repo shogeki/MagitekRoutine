@@ -1,12 +1,10 @@
-﻿using Buddy.Coroutines;
-using ff14bot;
+﻿using ff14bot;
 using ff14bot.Enums;
 using ff14bot.Managers;
 using ff14bot.Objects;
 using Magitek.Extensions;
 using Magitek.Models.Astrologian;
 using Magitek.Utilities;
-using System;
 using System.Linq;
 using System.Threading.Tasks;
 using static ff14bot.Managers.ActionResourceManager.Astrologian;
@@ -44,7 +42,7 @@ namespace Magitek.Logic.Astrologian
         public static async Task<bool> PlayCards()
         {
             var drawnCard = GetDrawnCard();
-            
+
             var cardDrawn = drawnCard != NewAstroCards.None;
 
             /*
@@ -68,7 +66,7 @@ namespace Magitek.Logic.Astrologian
             //    && !cardDrawn)
             //     if (await Spells.Draw.Cast(Core.Me))
             //       await Coroutine.Wait(700, () => GetDrawnCard() != NewAstroCards.None);
-                
+
             if (!cardDrawn)
                 return false;
 
@@ -81,7 +79,7 @@ namespace Magitek.Logic.Astrologian
 
             //if (await RedrawOrDrawAgain(drawnCard))
             //    return true;
-            
+
             if (Globals.InParty && Core.Me.InCombat && AstrologianSettings.Instance.Play)
             {
                 switch (drawnCard)
@@ -216,7 +214,7 @@ namespace Magitek.Logic.Astrologian
         private static async Task<bool> MeleeDpsOrTank()
         {
             var ally = Group.CastableAlliesWithin30.Where(a => !a.HasAnyCardAura() && a.CurrentHealth > 0 && (a.IsTank() || a.IsMeleeDps())).OrderBy(GetWeight);
-            
+
             if (ally == null)
                 return false;
 
@@ -296,10 +294,10 @@ namespace Magitek.Logic.Astrologian
 
                 case ClassJobType.Scholar:
                     return AstrologianSettings.Instance.SchCardWeight;
-                
+
                 case ClassJobType.Reaper:
                     return AstrologianSettings.Instance.RprCardWeight;
-                
+
                 case ClassJobType.Sage:
                     return AstrologianSettings.Instance.SgeCardWeight;
 

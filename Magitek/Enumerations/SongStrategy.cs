@@ -1,8 +1,6 @@
-﻿using BardSong = ff14bot.Managers.ActionResourceManager.Bard.BardSong;
-using Magitek.Extensions;
-using Magitek.Models.Bard;
-using Magitek.Utilities;
+﻿using Magitek.Models.Bard;
 using System.Collections.Generic;
+using BardSong = ff14bot.Managers.ActionResourceManager.Bard.BardSong;
 
 namespace Magitek.Enumerations
 {
@@ -12,18 +10,18 @@ namespace Magitek.Enumerations
         MB_WM_AP,
         MB_AP_WM
     }
-    
+
     public static class SongStrategy
     {
         public static List<BardSong> GetSongOrderFromSongStrategy()
         {
             if (SongStrategyEnum.MB_WM_AP.Equals(BardSettings.Instance.CurrentSongPlaylist))
-                return new List<BardSong>() { BardSong.MagesBallad, BardSong.WanderersMinuet, BardSong.ArmysPaeon };
+                return [BardSong.MagesBallad, BardSong.WanderersMinuet, BardSong.ArmysPaeon];
 
             if (SongStrategyEnum.MB_AP_WM.Equals(BardSettings.Instance.CurrentSongPlaylist))
-                return new List<BardSong>() { BardSong.MagesBallad, BardSong.ArmysPaeon, BardSong.WanderersMinuet };
+                return [BardSong.MagesBallad, BardSong.ArmysPaeon, BardSong.WanderersMinuet];
 
-            return new List<BardSong>() { BardSong.WanderersMinuet, BardSong.MagesBallad, BardSong.ArmysPaeon };
+            return [BardSong.WanderersMinuet, BardSong.MagesBallad, BardSong.ArmysPaeon];
         }
     }
 }

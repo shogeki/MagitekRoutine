@@ -3,10 +3,10 @@ using ff14bot.Managers;
 using Magitek.Extensions;
 using Magitek.Logic.Roles;
 using Magitek.Models.Monk;
-using MonkRoutine = Magitek.Utilities.Routines.Monk;
 using Magitek.Utilities;
 using System.Linq;
 using System.Threading.Tasks;
+using MonkRoutine = Magitek.Utilities.Routines.Monk;
 
 namespace Magitek.Logic.Monk
 {
@@ -20,7 +20,7 @@ namespace Magitek.Logic.Monk
             if (!MonkSettings.Instance.UseAutoMeditate)
                 return false;
 
-            if(!Core.Me.IsAlive)
+            if (!Core.Me.IsAlive)
                 return false;
 
             if (!Core.Me.InCombat && ActionResourceManager.Monk.ChakraCount < 5)

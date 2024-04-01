@@ -1,11 +1,9 @@
 ﻿using ff14bot;
-using ff14bot.Managers;
 using Magitek.Extensions;
 using Magitek.Models.Ninja;
 using Magitek.Utilities;
 using System.Linq;
 using System.Threading.Tasks;
-using NinjaRoutine = Magitek.Utilities.Routines.Ninja;
 
 namespace Magitek.Logic.Ninja
 {
@@ -52,7 +50,7 @@ namespace Magitek.Logic.Ninja
             if (!Spells.AssassinatePvp.CanCast())
                 return false;
 
-            if(!NinjaSettings.Instance.Pvp_Assassinate)
+            if (!NinjaSettings.Instance.Pvp_Assassinate)
                 return false;
 
             if (Core.Me.CurrentTarget.Distance(Core.Me) > 5)
@@ -257,8 +255,8 @@ namespace Magitek.Logic.Ninja
             if (!NinjaSettings.Instance.Pvp_Huton)
                 return false;
 
-            if(Core.Me.CurrentHealthPercent > NinjaSettings.Instance.Pvp_HutonHealthPercent)
-                 return false;
+            if (Core.Me.CurrentHealthPercent > NinjaSettings.Instance.Pvp_HutonHealthPercent)
+                return false;
 
             return await Spells.HutonPvp.Cast(Core.Me);
         }

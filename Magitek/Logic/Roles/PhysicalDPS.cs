@@ -123,7 +123,7 @@ namespace Magitek.Logic.Roles
             if (Core.Me.HasAura(Auras.Medicated, true))
                 return false;
 
-            return await Potion.UsePotion((int) settings.PotionTypeAndGradeLevel);
+            return await Potion.UsePotion((int)settings.PotionTypeAndGradeLevel);
         }
 
         public static bool ForceLimitBreak(SpellData limitBreak1Spell, SpellData limitBreak2Spell, SpellData limitBreak3Spell, SpellData gcd)
@@ -143,7 +143,7 @@ namespace Magitek.Logic.Roles
             }
 
             //LB 2 or LB 1
-            if (PartyManager.NumMembers == 4 
+            if (PartyManager.NumMembers == 4
                 && !Casting.SpellCastHistory.Any(s => s.Spell == limitBreak1Spell)
                 && !Casting.SpellCastHistory.Any(s => s.Spell == limitBreak2Spell)
                 && gcd.Cooldown.TotalMilliseconds < 500)
@@ -165,7 +165,7 @@ namespace Magitek.Logic.Roles
                 return false;
 
             if (Core.Me.HasAura(Auras.Guard))
-                return false; 
+                return false;
 
             if (!Spells.Recuperate.CanCast())
                 return false;
@@ -220,6 +220,6 @@ namespace Magitek.Logic.Roles
         {
             return Core.Me.CurrentTarget.HasAura(Auras.Guard);
         }
-            #endregion
-        }
+        #endregion
+    }
 }

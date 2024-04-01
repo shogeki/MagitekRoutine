@@ -8,10 +8,9 @@ using Magitek.Models.Account;
 using Magitek.Models.Monk;
 using Magitek.Utilities;
 using Magitek.Utilities.CombatMessages;
-using MonkRoutine = Magitek.Utilities.Routines.Monk;
 using System.Linq;
 using System.Threading.Tasks;
-using Magitek.Models.Scholar;
+using MonkRoutine = Magitek.Utilities.Routines.Monk;
 
 namespace Magitek.Rotations
 {
@@ -92,14 +91,14 @@ namespace Magitek.Rotations
 
             if (SpellQueueLogic.SpellQueue.Any())
             {
-                if (await SpellQueueLogic.SpellQueueMethod()) 
+                if (await SpellQueueLogic.SpellQueueMethod())
                     return true;
             }
 
             if (!Core.Me.HasTarget || !Core.Me.CurrentTarget.ThoroughCanAttack())
                 return false;
 
-            if (await CustomOpenerLogic.Opener()) 
+            if (await CustomOpenerLogic.Opener())
                 return true;
 
             //Limit Break
@@ -107,7 +106,7 @@ namespace Magitek.Rotations
                 return true;
 
             //Buff
-            if (await Buff.Meditate()) 
+            if (await Buff.Meditate())
                 return true;
 
             if (!Core.Me.HasAura(Auras.Anatman))
@@ -118,12 +117,16 @@ namespace Magitek.Rotations
                     if (await PhysicalDps.SecondWind(MonkSettings.Instance)) return true;
                     if (await PhysicalDps.Bloodbath(MonkSettings.Instance)) return true;
                     if (await PhysicalDps.Feint(MonkSettings.Instance)) return true;
+
                     if (await Buff.UsePotion()) return true;
 
                     if (await Buff.RiddleOfFire()) return true;
                     if (await Buff.RiddleOfWind()) return true;
+
                     if (await Aoe.Enlightenment()) return true;
+
                     if (await SingleTarget.TheForbiddenChakra()) return true;
+
                     if (await Buff.Brotherhood()) return true;
                     if (await Buff.PerfectBalance()) return true;
                     if (await Buff.RiddleOfWind()) return true;
@@ -131,6 +134,7 @@ namespace Magitek.Rotations
                 }
 
                 if (await Aoe.MasterfulBlitz()) return true;
+
                 if (await SingleTarget.PerfectBalancePhoenix()) return true;
                 if (await SingleTarget.PerfectBalanceElixir()) return true;
                 if (await SingleTarget.PerfectBalanceRoT()) return true;
@@ -143,6 +147,7 @@ namespace Magitek.Rotations
                 if (await SingleTarget.DragonKick()) return true;
                 if (await SingleTarget.TwinSnakes()) return true;
                 if (await SingleTarget.Demolish()) return true;
+
                 if (await SingleTarget.TrueStrike()) return true;
                 if (await SingleTarget.SnapPunch()) return true;
                 if (await SingleTarget.Bootshine()) return true;

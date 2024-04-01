@@ -1,7 +1,6 @@
 ﻿using Clio.Utilities.Collections;
 using Magitek.Commands;
 using Magitek.Enumerations;
-using Magitek.Models.Account;
 using Magitek.Models.Astrologian;
 using Magitek.Models.Bard;
 using Magitek.Models.BlackMage;

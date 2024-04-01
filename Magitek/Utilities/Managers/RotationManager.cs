@@ -580,7 +580,7 @@ namespace Magitek.Utilities.Managers
 
                 case ClassJobType.Pugilist:
                 case ClassJobType.Monk:
-                    return await Rotations.Monk.PvP();    
+                    return await Rotations.Monk.PvP();
 
                 //case ClassJobType.Marauder:
                 //case ClassJobType.Warrior:
@@ -592,19 +592,19 @@ namespace Magitek.Utilities.Managers
 
                 case ClassJobType.Archer:
                 case ClassJobType.Bard:
-                    return await Rotations.Bard.PvP();    
+                    return await Rotations.Bard.PvP();
 
                 case ClassJobType.Conjurer:
                 case ClassJobType.WhiteMage:
-                    return await Rotations.WhiteMage.PvP();    
+                    return await Rotations.WhiteMage.PvP();
 
                 case ClassJobType.Thaumaturge:
                 case ClassJobType.BlackMage:
-                    return await Rotations.BlackMage.PvP();    
+                    return await Rotations.BlackMage.PvP();
 
                 case ClassJobType.Arcanist:
                 case ClassJobType.Summoner:
-                    return await Rotations.Summoner.PvP();    
+                    return await Rotations.Summoner.PvP();
 
                 //case ClassJobType.Scholar:
                 //    return await Rotations.Scholar.PvP();    
@@ -614,13 +614,13 @@ namespace Magitek.Utilities.Managers
                 //    return await Rotations.Ninja.PvP();    
 
                 case ClassJobType.Machinist:
-                    return await Rotations.Machinist.PvP();    
+                    return await Rotations.Machinist.PvP();
 
                 //case ClassJobType.DarkKnight:
                 //    return await Rotations.DarkKnight.PvP();    
 
                 case ClassJobType.Astrologian:
-                  return await Rotations.Astrologian.PvP();
+                    return await Rotations.Astrologian.PvP();
 
                 //case ClassJobType.Samurai:
                 //    return await Rotations.Samurai.PvP();

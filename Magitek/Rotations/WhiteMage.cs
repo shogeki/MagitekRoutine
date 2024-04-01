@@ -5,7 +5,6 @@ using Magitek.Logic;
 using Magitek.Logic.Roles;
 using Magitek.Logic.WhiteMage;
 using Magitek.Models.Account;
-using Magitek.Models.Summoner;
 using Magitek.Models.WhiteMage;
 using Magitek.Utilities;
 using System.Linq;
@@ -74,14 +73,14 @@ namespace Magitek.Rotations
             if (BaseSettings.Instance.ActivePvpCombatRoutine)
                 return await PvP();
 
-            if (await Casting.TrackSpellCast()) 
+            if (await Casting.TrackSpellCast())
                 return true;
-            
+
             await Casting.CheckForSuccessfulCast();
 
             Casting.DoHealthChecks = false;
 
-            if (await GambitLogic.Gambit()) 
+            if (await GambitLogic.Gambit())
                 return true;
 
             //LimitBreak
@@ -103,9 +102,9 @@ namespace Magitek.Rotations
             // Scalebound Extreme Rathalos
             if (Core.Me.HasAura(1495))
             {
-                if (await Dispel.Execute()) 
+                if (await Dispel.Execute())
                     return true;
-                
+
                 return false;
             }
 
@@ -216,7 +215,7 @@ namespace Magitek.Rotations
             if (await Aoe.Holy()) return true;
             if (await Aoe.AssizeDamage()) return true;
 
-            
+
 
             if (await SingleTarget.Dots()) return true;
             if (await SingleTarget.DotMultipleTargets()) return true;

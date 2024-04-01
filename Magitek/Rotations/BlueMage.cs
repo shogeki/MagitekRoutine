@@ -6,9 +6,9 @@ using Magitek.Logic.BlueMage;
 using Magitek.Logic.Roles;
 using Magitek.Models.BlueMage;
 using Magitek.Utilities;
-using BlueMageRoutine = Magitek.Utilities.Routines.BlueMage;
 using System.Linq;
 using System.Threading.Tasks;
+using BlueMageRoutine = Magitek.Utilities.Routines.BlueMage;
 
 
 namespace Magitek.Rotations

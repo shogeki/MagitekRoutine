@@ -55,8 +55,8 @@ namespace Magitek.Logic.Gunbreaker
         public static async Task<bool> FatedCircle()
         {
             if (!GunbreakerSettings.Instance.UseAoe)
-                return false; 
-            
+                return false;
+
             if (!GunbreakerSettings.Instance.UseFatedCircle)
                 return false;
 

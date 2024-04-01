@@ -7,9 +7,9 @@
         <ResourceDictionary Source="/Magitek;component/Styles/Magitek.xaml" />
     </UserControl.Resources>
 
-    <UserControl.DataContext>
-        <Binding Source="{x:Static viewModels:MagitekApi.Instance}" />
-    </UserControl.DataContext>
+    <!-- UserControl.DataContext -->
+     <!-- Binding Source="{x:Static viewModels:MagitekApi.Instance}" / -->
+    <!-- /UserControl.DataContext -->
 
     <StackPanel>
         <StackPanel Orientation="Horizontal" 

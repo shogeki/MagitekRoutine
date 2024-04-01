@@ -1,12 +1,9 @@
 using ff14bot;
-using ff14bot.Managers;
 using Magitek.Extensions;
 using Magitek.Logic.Roles;
-using Magitek.Models.Account;
 using Magitek.Models.Paladin;
 using Magitek.Utilities;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 using Auras = Magitek.Utilities.Auras;
 using PaladinRoutine = Magitek.Utilities.Routines.Paladin;
@@ -47,7 +44,7 @@ namespace Magitek.Logic.Paladin
 
             if (!PaladinRoutine.GlobalCooldown.CanDoubleWeave() || !PaladinRoutine.GlobalCooldown.CanWeave(2))
                 return false;
- 
+
             return await Spells.FightorFlight.Cast(Core.Me);
 
         }

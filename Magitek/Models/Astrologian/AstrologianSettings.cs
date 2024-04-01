@@ -1,5 +1,4 @@
-﻿using Magitek.Enumerations;
-using Magitek.Models.Roles;
+﻿using Magitek.Models.Roles;
 using PropertyChanged;
 using System.ComponentModel;
 using System.Configuration;
@@ -70,11 +69,11 @@ namespace Magitek.Models.Astrologian
         [Setting]
         [DefaultValue(20)]
         public int DoDamageIfTimeLeftLessThan { get; set; }
-        
+
         [Setting]
         [DefaultValue(false)]
         public bool SmartAoe { get; set; }
-        
+
         [Setting]
         [DefaultValue(false)]
         public bool AggroAst { get; set; }
@@ -111,11 +110,11 @@ namespace Magitek.Models.Astrologian
         [Setting]
         [DefaultValue(80.0f)]
         public float LucidDreamingManaPercent { get; set; }
-        
+
         [Setting]
         [DefaultValue(true)]
         public bool Exaltation { get; set; }
-        
+
         [Setting]
         [DefaultValue(40f)]
         public float ExaltationHealthPercent { get; set; }
@@ -227,7 +226,7 @@ namespace Magitek.Models.Astrologian
         [Setting]
         [DefaultValue(75)]
         public float CelestialOppositionHealthPercent { get; set; }
-        
+
         [Setting]
         [DefaultValue(true)]
         public bool DiurnalBenefic { get; set; }
@@ -371,39 +370,39 @@ namespace Magitek.Models.Astrologian
         [Setting]
         [DefaultValue(60)]
         public float GiantDominanceHealthPercent { get; set; }
-        
+
         [Setting]
         [DefaultValue(true)]
         public bool Macrocosmos { get; set; }
-        
+
         [Setting]
         [DefaultValue(65f)]
         public float MacrocosmosHealthPercent { get; set; }
-        
+
         [Setting]
         [DefaultValue(true)]
         public bool WeaveOGCDHeals { get; set; }
-        
+
         [Setting]
         [DefaultValue(true)]
         public bool DontLetTheDRKDie { get; set; }
-        
+
         [Setting]
         [DefaultValue(true)]
         public bool FightLogic_NeutralSectAspectedHelios { get; set; }
-        
+
         [Setting]
         [DefaultValue(true)]
         public bool FightLogic_Exaltation { get; set; }
-        
+
         [Setting]
         [DefaultValue(true)]
         public bool FightLogic_Macrocosmos { get; set; }
-        
+
         [Setting]
         [DefaultValue(true)]
         public bool FightLogic_CollectiveUnconscious { get; set; }
-        
+
         [Setting]
         [DefaultValue(true)]
         public bool FightLogic_Lightspeed { get; set; }

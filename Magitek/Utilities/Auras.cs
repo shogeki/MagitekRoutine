@@ -1,6 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Windows;
-using System.Windows.Shapes;
 
 namespace Magitek.Utilities
 {
@@ -336,7 +334,7 @@ namespace Magitek.Utilities
             CircleofScorn = 248,
             Bunshin = 1954,
             PhantomKamaitachiReady = 2723;
-        
+
         private const int
             Invincibility0 = 981,
             Invincibility1 = 969,
@@ -402,16 +400,16 @@ namespace Magitek.Utilities
             PvpMidare = 3203,
             PvpKuzushi = 3202,
             PvpKaiten = 3201,
-            PvpSoulsow = 2750, 
+            PvpSoulsow = 2750,
             PvpEnshrouded = 2863,
             PvpRipeforReaping = 2858,
             PvpImmortalSacrifice = 3204,
-            PvpNoMercy  = 3042,
+            PvpNoMercy = 3042,
             PvpRelentlessRush = 3052,
             PvpBlackblood = 3033,
             PvpDarkArts = 3034,
-            PvpSwordOath = 1991, 
-            PvpHallowedGround  = 1302,
+            PvpSwordOath = 1991,
+            PvpHallowedGround = 1302,
             PvpOnslaught = 3029,
             PvpOrogeny = 3256;
 

@@ -2,7 +2,6 @@ using ff14bot;
 using ff14bot.Managers;
 using Magitek.Extensions;
 using Magitek.Logic.Roles;
-using Magitek.Models.Account;
 using Magitek.Models.Machinist;
 using Magitek.Utilities;
 using System;
@@ -83,7 +82,8 @@ namespace Magitek.Logic.Machinist
             if (ActionResourceManager.Machinist.OverheatRemaining > TimeSpan.Zero)
                 return false;
 
-            if (MachinistSettings.Instance.DelayWildfire) { 
+            if (MachinistSettings.Instance.DelayWildfire)
+            {
                 if (Spells.Drill.IsKnown() && Spells.Drill.Cooldown.Seconds <= MachinistSettings.Instance.DelayWildfireSeconds)
                     return false;
 
@@ -139,7 +139,7 @@ namespace Magitek.Logic.Machinist
                         || MachinistSettings.Instance.UseHotAirAnchor && Spells.AirAnchor.IsReady(3000)
                         || MachinistSettings.Instance.UseChainSaw && Spells.ChainSaw.IsReady(3000))
                         return await Spells.Reassemble.Cast(Core.Me);
-                } 
+                }
                 else
                 {
                     if (MachinistSettings.Instance.UseChainSaw && !Spells.ChainSaw.IsReady(2000))

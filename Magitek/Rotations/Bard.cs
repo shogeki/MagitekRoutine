@@ -7,8 +7,8 @@ using Magitek.Logic.Roles;
 using Magitek.Models.Account;
 using Magitek.Models.Bard;
 using Magitek.Utilities;
-using BardRoutine = Magitek.Utilities.Routines.Bard;
 using System.Threading.Tasks;
+using BardRoutine = Magitek.Utilities.Routines.Bard;
 
 namespace Magitek.Rotations
 {
@@ -95,7 +95,7 @@ namespace Magitek.Rotations
             if (!Core.Me.HasTarget || !Core.Me.CurrentTarget.ThoroughCanAttack())
                 return false;
 
-            if (await CustomOpenerLogic.Opener()) 
+            if (await CustomOpenerLogic.Opener())
                 return true;
 
             //LimitBreak

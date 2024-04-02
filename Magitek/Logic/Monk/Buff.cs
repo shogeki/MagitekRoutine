@@ -12,7 +12,7 @@ namespace Magitek.Logic.Monk
 {
     internal static class Buff
     {
-        public static async Task<bool> Meditate()
+        public static async Task<bool> Meditation()
         {
             if (Core.Me.ClassLevel < 54)
                 return false;

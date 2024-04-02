@@ -132,15 +132,15 @@ namespace Magitek.Rotations
 
             //Combo
             if (await SingleTarget.ScorchResolutionCombo()) return true;
+            if (await SingleTarget.Verflare()) return true;
+            if (await SingleTarget.Verholy()) return true;
             if (await Aoe.Moulinet()) return true;
             if (await SingleTarget.Reprise()) return true;
             if (await SingleTarget.Redoublement()) return true;
             if (await SingleTarget.Zwerchhau()) return true;
             if (await SingleTarget.Riposte()) return true;
 
-            //Combo procs
-            if (await SingleTarget.Verflare()) return true;
-            if (await SingleTarget.Verholy()) return true;
+           
 
             //AoE
             if (RedMageSettings.Instance.UseAoe && Core.Me.CurrentTarget.EnemiesNearby(5).Count() >= RedMageSettings.Instance.AoeEnemies)
@@ -201,6 +201,9 @@ namespace Magitek.Rotations
 
         public static void RegisterCombatMessages()
         {
+            if (BotManager.Current.IsAutonomous)
+                return;
+
             if (!BaseSettings.Instance.ActivePvpCombatRoutine)
                 CombatMessages.RegisterCombatMessages(RdmStateMachine.StateMachine);
         }

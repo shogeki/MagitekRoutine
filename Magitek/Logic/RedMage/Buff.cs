@@ -32,7 +32,7 @@ namespace Magitek.Logic.RedMage
                 || Core.Me.HasAura(Auras.Acceleration))
                 return false;
 
-            if (!MovementManager.IsMoving && Spells.Acceleration.Charges < RedMageSettings.Instance.SaveAccelChargesForMovement)
+            if (!MovementManager.IsMoving && Spells.Acceleration.Charges <= RedMageSettings.Instance.SaveAccelChargesForMovement)
                 return false;
 
             if (InComboEnder())

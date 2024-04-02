@@ -30,7 +30,7 @@ namespace Magitek.Rotations
             if (WorldManager.InSanctuary)
                 return false;
 
-            if (await Buff.Meditate()) return true;
+            if (await Buff.Meditation()) return true;
 
             return false;
         }
@@ -64,7 +64,7 @@ namespace Magitek.Rotations
 
         public static async Task<bool> CombatBuff()
         {
-            return await Buff.Meditate();
+            return await Buff.Meditation();
         }
 
         public static async Task<bool> Combat()
@@ -106,7 +106,7 @@ namespace Magitek.Rotations
                 return true;
 
             //Buff
-            if (await Buff.Meditate())
+            if (await Buff.Meditation())
                 return true;
 
             if (!Core.Me.HasAura(Auras.Anatman))
@@ -160,6 +160,8 @@ namespace Magitek.Rotations
 
         public static void RegisterCombatMessages()
         {
+            if (BotManager.Current.IsAutonomous)
+                return;
 
             //Highest priority: Don't show anything if we're not in combat
             CombatMessageManager.RegisterMessageStrategy(

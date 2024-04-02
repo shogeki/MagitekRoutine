@@ -30,13 +30,19 @@ namespace Magitek.Logic.RedMage
                 && Spells.Embolden.Cooldown.Seconds <= 10)
                 return false;
 
-            bool Combo = InAoeCombo();
+            var Combo = InAoeCombo();
 
-            if (!Combo && Core.Me.EnemiesInCone(8 + Core.Me.CurrentTarget.CombatReach) < RedMageSettings.Instance.AoeEnemies)
+            if (!Combo && Core.Me.EnemiesInCone(8) < RedMageSettings.Instance.AoeEnemies)
                 return false;
 
             //Hopefully cast 3 moulinet in a row so we can combo
-            if (!Combo && (WhiteMana < 60 || BlackMana < 60) || ManaStacks() < 3)
+            if (!Combo && WhiteMana < 60 && BlackMana < 60)
+                return false;
+
+            if (WhiteMana < 20 && BlackMana < 20)
+                return false;
+
+            if (ManaStacks() == 3)
                 return false;
 
             return await Spells.Moulinet.Cast(Core.Me.CurrentTarget);

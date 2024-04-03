@@ -301,5 +301,16 @@ namespace Magitek.Utilities.Routines
         public static bool MeHasAnyAura(List<uint> auras) => Core.Me.HasAnyAura(auras.Where(a => SmUtil.SyncedLevel >= AuraLevelsAcquiredDict[a]).ToList());
         public static bool MeHasAllAuras(List<uint> auras) => auras.Any(a => SmUtil.SyncedLevel < AuraLevelsAcquiredDict[a]) ? false : Core.Me.HasAllAuras(auras.Where(a => SmUtil.SyncedLevel >= AuraLevelsAcquiredDict[a]).ToList());
         #endregion
+
+        public static bool CanContinueComboAfter(SpellData LastSpellExecuted)
+        {
+            if (ActionManager.ComboTimeLeft <= 0)
+                return false;
+
+            if (ActionManager.LastSpell.Id != LastSpellExecuted.Id)
+                return false;
+
+            return true;
+        }
     }
 }

@@ -25,23 +25,22 @@ namespace Magitek.Logic.RedMage
             if (Core.Me.ClassLevel < Spells.Moulinet.LevelAcquired)
                 return false;
 
-            //If embolden coming off cd soon, wait
-            if (Core.Me.ClassLevel >= Spells.Embolden.LevelAcquired
-                && Spells.Embolden.Cooldown.Seconds <= 10)
+            if (!InAoeCombo())
+            {
+                if (Core.Me.ClassLevel >= Spells.Embolden.LevelAcquired
+                    && Spells.Embolden.Cooldown.Seconds <= 10)
+                    return false;
+
+                if (Core.Me.EnemiesInCone(8) < RedMageSettings.Instance.AoeEnemies)
+                    return false;
+
+                if (WhiteMana < 60 || BlackMana < 60)
+                    return false;
+            }
+        
+            if (WhiteMana < 20 || BlackMana < 20)
                 return false;
-
-            var Combo = InAoeCombo();
-
-            if (!Combo && Core.Me.EnemiesInCone(8) < RedMageSettings.Instance.AoeEnemies)
-                return false;
-
-            //Hopefully cast 3 moulinet in a row so we can combo
-            if (!Combo && WhiteMana < 60 && BlackMana < 60)
-                return false;
-
-            if (WhiteMana < 20 && BlackMana < 20)
-                return false;
-
+            
             if (ManaStacks() == 3)
                 return false;
 
@@ -64,8 +63,8 @@ namespace Magitek.Logic.RedMage
             if (InAoeCombo())
                 return false;
 
-            if (InCombo())
-                return false;
+            //if (InCombo())
+            //    return false;
 
             return await Spells.ContreSixte.Cast(Core.Me.CurrentTarget);
         }
@@ -105,6 +104,9 @@ namespace Magitek.Logic.RedMage
                 return false;
 
             if (InCombo())
+                return false;
+
+            if (ManaStacks() == 3)
                 return false;
 
             if (Core.Me.HasAura(Auras.Dualcast))

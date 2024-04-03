@@ -10,7 +10,7 @@ using Magitek.Utilities.CombatMessages;
 using static Magitek.Utilities.Routines.RedMage;
 namespace Magitek.Logic.RedMage
 {
-    class CombatMessages
+    internal class CombatMessages
     {
         private static HashSet<RdmStateIds> mComboStates = new HashSet<RdmStateIds>() { RdmStateIds.Zwerchhau, RdmStateIds.Redoublement, RdmStateIds.VerflareOrVerholy, RdmStateIds.Scorch, RdmStateIds.Resolution };
 

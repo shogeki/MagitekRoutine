@@ -14,10 +14,10 @@ namespace Magitek.Logic.Monk
     {
         public static async Task<bool> Meditation()
         {
-            if (Core.Me.ClassLevel < 54)
+            if (Core.Me.ClassLevel < Spells.Meditation.LevelAcquired)
                 return false;
 
-            if (!MonkSettings.Instance.UseAutoMeditate)
+            if (!MonkSettings.Instance.UseAutoMeditation)
                 return false;
 
             if (!Core.Me.IsAlive)

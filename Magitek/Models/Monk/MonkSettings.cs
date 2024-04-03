@@ -55,7 +55,7 @@ namespace Magitek.Models.Monk
 
         [Setting]
         [DefaultValue(false)]
-        public bool UseAutoMeditate { get; set; }
+        public bool UseAutoMeditation { get; set; }
 
         [Setting]
         [DefaultValue(true)]

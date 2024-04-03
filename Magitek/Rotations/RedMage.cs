@@ -113,10 +113,10 @@ namespace Magitek.Rotations
             {
                 //Buffs
                 if (await Buff.MagickBarrier()) return true;
+                if (await Buff.Swiftcast()) return true;
                 if (await Buff.Acceleration()) return true;
                 if (await Buff.Embolden()) return true;
                 if (await Buff.Manafication()) return true;
-                if (await Buff.Swiftcast()) return true;
                 if (await Buff.LucidDreaming()) return true;
 
                 //oGCD Abilities
@@ -124,9 +124,10 @@ namespace Magitek.Rotations
                 if (await SingleTarget.Fleche()) return true;
 
                 //Movement Abilities
+                if (await SingleTarget.CorpsACorps()) return true;
                 if (await SingleTarget.Engagement()) return true;
                 if (await SingleTarget.Displacement()) return true;
-                if (await SingleTarget.CorpsACorps()) return true;
+                
 
             }
 
@@ -135,7 +136,6 @@ namespace Magitek.Rotations
             if (await SingleTarget.Verflare()) return true;
             if (await SingleTarget.Verholy()) return true;
             if (await Aoe.Moulinet()) return true;
-            if (await SingleTarget.Reprise()) return true;
             if (await SingleTarget.Redoublement()) return true;
             if (await SingleTarget.Zwerchhau()) return true;
             if (await SingleTarget.Riposte()) return true;
@@ -158,6 +158,8 @@ namespace Magitek.Rotations
             if (await SingleTarget.Verthunder()) return true;
             if (await SingleTarget.Veraero()) return true;
             if (await SingleTarget.Jolt()) return true;
+
+            if (await SingleTarget.Reprise()) return true;
 
             return false;
             //return await RdmStateMachine.StateMachine.Pulse();

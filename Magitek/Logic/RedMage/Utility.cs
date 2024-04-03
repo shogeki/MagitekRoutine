@@ -82,7 +82,7 @@ namespace Magitek.Logic.RedMage
         public static bool ShouldApproachForCombo()
         {
 
-            if (InAoeCombo() || InCombo() || !(WhiteMana < 60 || BlackMana < 60))
+            if (InAoeCombo() || InCombo() || !(WhiteMana < 50 || BlackMana < 50))
                 return true;
 
             return false;

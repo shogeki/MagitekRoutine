@@ -33,10 +33,10 @@ namespace Magitek.Utilities
             //if (!MovementManager.IsMoving && !unit.InView() && !RoutineManager.IsAnyDisallowed(CapabilityFlags.Facing))
             //   Core.Me.Face(Core.Me.CurrentTarget);
 
-            if (unit.Distance(Core.Me) > distance)
-            {
-                Navigator.MoveTo(new MoveToParameters(unit.Location));
-            }
+          //  if (unit.Distance(Core.Me) > distance)
+          //  {
+          //      Navigator.MoveTo(new MoveToParameters(unit.Location));
+          //  }
 
             if (Core.Me.Distance(unit.Location) <= distance && unit.InView() && unit.InLineOfSight())
             {

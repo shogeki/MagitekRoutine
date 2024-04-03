@@ -22,32 +22,24 @@ namespace Magitek.Logic.RedMage
             if (Core.Me.ClassLevel >= 35
                 && Core.Me.ClassLevel < 50)
             {
-                if (Casting.LastSpell == Spells.Riposte)
+                if (RedMageRoutine.CanContinueComboAfter(Spells.Riposte) || RedMageRoutine.CanContinueComboAfter(Spells.EnchantedRiposte))
                     return true;
             }
 
-            if (Core.Me.ClassLevel >= 50 && Core.Me.ClassLevel < 68)
+            if (Core.Me.ClassLevel >= 50)
             {
-                if (Casting.LastSpell == Spells.Riposte
-                || Casting.LastSpell == Spells.Zwerchhau)
+                if (RedMageRoutine.CanContinueComboAfter(Spells.Riposte) || RedMageRoutine.CanContinueComboAfter(Spells.EnchantedRiposte)
+                || RedMageRoutine.CanContinueComboAfter(Spells.Zwerchhau) || RedMageRoutine.CanContinueComboAfter(Spells.EnchantedZwerchhau))
                     return true;
             }
-            /* if (Core.Me.ClassLevel >= 68)
-            {
-                if (Casting.LastSpell == Spells.Riposte
-                || Casting.LastSpell == Spells.Zwerchhau
-                || Casting.LastSpell == Spells.Redoublement)
-                    return true;
-            } */ 
-
             return false;
         }
-
         public static int ManaStacks()
         {
 
             return ActionResourceManager.CostTypesStruct.offset_A;
         }
+
         public static bool InAoeCombo()
         {
 
@@ -57,7 +49,7 @@ namespace Magitek.Logic.RedMage
             if (!RedMageSettings.Instance.UseAoe)
                 return false;
 
-            if (!RedMageRoutine.CanContinueComboAfter(Spells.Moulinet))            
+            if (!RedMageRoutine.CanContinueComboAfter(Spells.Moulinet) && !RedMageRoutine.CanContinueComboAfter(Spells.EnchantedMoulinet))            
                 return false;
 
             if (ManaStacks() == 3)

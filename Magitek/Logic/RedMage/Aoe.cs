@@ -25,6 +25,11 @@ namespace Magitek.Logic.RedMage
             if (Core.Me.ClassLevel < Spells.Moulinet.LevelAcquired)
                 return false;
 
+            if (Core.Me.HasAura(Auras.Swiftcast)
+                || Core.Me.HasAura(Auras.Dualcast)
+                || Core.Me.HasAura(Auras.Acceleration))
+                return false;
+
             if (!InAoeCombo())
             {
                 if (Core.Me.ClassLevel >= Spells.Embolden.LevelAcquired

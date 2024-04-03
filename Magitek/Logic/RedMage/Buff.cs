@@ -44,6 +44,9 @@ namespace Magitek.Logic.RedMage
             if (InCombo())
                 return false;
 
+            if (Core.Me.HasAura(Auras.VerfireReady) && Core.Me.HasAura(Auras.VerstoneReady))
+                return false;
+
             return await Spells.Acceleration.Cast(Core.Me.CurrentTarget);
         }
         public static async Task<bool> Embolden()

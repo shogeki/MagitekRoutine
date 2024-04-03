@@ -152,7 +152,7 @@ namespace Magitek.Logic.RedMage
                 if (MovementManager.IsMoving && !Core.Me.HasAura(Auras.Dualcast))
                     return false;
 
-            if (MovementManager.IsMoving)
+            if (MovementManager.IsMoving && BotManager.Current.IsAutonomous)
                 return false;
 
             if (Core.Me.HasAura(Auras.Dualcast)
@@ -278,8 +278,7 @@ namespace Magitek.Logic.RedMage
                 && RedMageSettings.Instance.SwiftcastVerthunderVeraero)
                 return await Spells.Verthunder.Cast(Core.Me.CurrentTarget);
 
-            if (Core.Me.HasAura(Auras.Acceleration)
-                && !Core.Me.HasAura(Auras.VerfireReady))
+            if (Core.Me.HasAura(Auras.Acceleration))
                 return await Spells.Verthunder.Cast(Core.Me.CurrentTarget);
 
             return false;

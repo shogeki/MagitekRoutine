@@ -91,7 +91,7 @@ namespace Magitek.Extensions
             if (!GameSettingsManager.FaceTargetOnAction && BaseSettings.Instance.AssumeFaceTargetOnAction)
                 GameSettingsManager.FaceTargetOnAction = true;
 
-            if (BotManager.Current.IsAutonomous && !GameSettingsManager.FaceTargetOnAction && !RoutineManager.IsAnyDisallowed(CapabilityFlags.Facing) && !MovementManager.IsMoving)
+            if (BotManager.Current.IsAutonomous && !GameSettingsManager.FaceTargetOnAction && !RoutineManager.IsAnyDisallowed(CapabilityFlags.Facing))
                 Core.Me.Face(target);
 
             return await DoAction(spell, target);
@@ -112,7 +112,7 @@ namespace Magitek.Extensions
             if (!GameSettingsManager.FaceTargetOnAction && BaseSettings.Instance.AssumeFaceTargetOnAction)
                 GameSettingsManager.FaceTargetOnAction = true;
 
-            if (BotManager.Current.IsAutonomous && !GameSettingsManager.FaceTargetOnAction && !RoutineManager.IsAnyDisallowed(CapabilityFlags.Facing) && !MovementManager.IsMoving)
+            if (BotManager.Current.IsAutonomous && !GameSettingsManager.FaceTargetOnAction && !RoutineManager.IsAnyDisallowed(CapabilityFlags.Facing))
                 Core.Me.Face(target);
 
             return await DoAction(spell, target, aura, needAura, useRefreshTime, refreshTime);

@@ -31,8 +31,8 @@ namespace Magitek.Extensions
             if (!GameSettingsManager.FaceTargetOnAction && BaseSettings.Instance.AssumeFaceTargetOnAction)
                 GameSettingsManager.FaceTargetOnAction = true;
 
-            if (BotManager.Current.IsAutonomous && !GameSettingsManager.FaceTargetOnAction && !RoutineManager.IsAnyDisallowed(CapabilityFlags.Facing) && !MovementManager.IsMoving)
-                Core.Me.Face(target);
+            //if (BotManager.Current.IsAutonomous && !GameSettingsManager.FaceTargetOnAction && !RoutineManager.IsAnyDisallowed(CapabilityFlags.Facing) && !MovementManager.IsMoving)
+            //    Core.Me.Face(target);
 
             return await DoPvPCombo(spell, spellPvpCombo, target);
         }
@@ -91,8 +91,8 @@ namespace Magitek.Extensions
             if (!GameSettingsManager.FaceTargetOnAction && BaseSettings.Instance.AssumeFaceTargetOnAction)
                 GameSettingsManager.FaceTargetOnAction = true;
 
-            if (BotManager.Current.IsAutonomous && !GameSettingsManager.FaceTargetOnAction && !RoutineManager.IsAnyDisallowed(CapabilityFlags.Facing))
-                Core.Me.Face(target);
+            //if (BotManager.Current.IsAutonomous && !GameSettingsManager.FaceTargetOnAction && !RoutineManager.IsAnyDisallowed(CapabilityFlags.Facing))
+            //    Core.Me.Face(target);
 
             return await DoAction(spell, target);
         }
@@ -112,8 +112,8 @@ namespace Magitek.Extensions
             if (!GameSettingsManager.FaceTargetOnAction && BaseSettings.Instance.AssumeFaceTargetOnAction)
                 GameSettingsManager.FaceTargetOnAction = true;
 
-            if (BotManager.Current.IsAutonomous && !GameSettingsManager.FaceTargetOnAction && !RoutineManager.IsAnyDisallowed(CapabilityFlags.Facing))
-                Core.Me.Face(target);
+            //if (BotManager.Current.IsAutonomous && !GameSettingsManager.FaceTargetOnAction && !RoutineManager.IsAnyDisallowed(CapabilityFlags.Facing))
+            //    Core.Me.Face(target);
 
             return await DoAction(spell, target, aura, needAura, useRefreshTime, refreshTime);
         }
@@ -207,6 +207,7 @@ namespace Magitek.Extensions
             {
                 return ActionManager.CanCast(spell, target);
             }
+
             else
             {
                 return ActionManager.CanCastOrQueue(spell, target);

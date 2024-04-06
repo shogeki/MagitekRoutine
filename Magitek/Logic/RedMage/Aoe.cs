@@ -24,19 +24,19 @@ namespace Magitek.Logic.RedMage
 
             if (Core.Me.ClassLevel < Spells.Moulinet.LevelAcquired)
                 return false;
-
-            if (Core.Me.HasAura(Auras.Swiftcast)
-                || Core.Me.HasAura(Auras.Dualcast)
-                || Core.Me.HasAura(Auras.Acceleration))
-                return false;
-
+                       
             if (!InAoeCombo())
             {
+                if (Core.Me.HasAura(Auras.Swiftcast)
+                || Core.Me.HasAura(Auras.Dualcast)
+                || Core.Me.HasAura(Auras.Acceleration))
+                    return false;
+
                 if (Core.Me.ClassLevel >= Spells.Embolden.LevelAcquired
                     && Spells.Embolden.Cooldown.Seconds <= 10)
                     return false;
 
-                if (Core.Me.EnemiesInCone(8) < RedMageSettings.Instance.AoeEnemies)
+                if (Core.Me.EnemiesInCone(8, 180) < RedMageSettings.Instance.AoeEnemies)
                     return false;
 
                 if (WhiteMana < 60 || BlackMana < 60)

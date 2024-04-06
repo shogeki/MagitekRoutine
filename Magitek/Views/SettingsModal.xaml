@@ -46,11 +46,16 @@
                                 <CheckBox Content="Activate PVP Routine (only for PVP !!)" IsChecked="{Binding GeneralSettings.ActivePvpCombatRoutine, Mode=TwoWay}" Style="{DynamicResource CheckBoxFlat}" />
                             </StackPanel>
                             <StackPanel Margin="2" Orientation="Horizontal">
-                                <CheckBox Content="Lift Zoom Restrictions" IsChecked="{Binding GeneralSettings.ZoomHack, Mode=TwoWay}" Style="{DynamicResource CheckBoxFlat}" />
+                                <CheckBox Content="Lift Zoom Restrictions               " IsChecked="{Binding GeneralSettings.ZoomHack, Mode=TwoWay}" Style="{DynamicResource CheckBoxFlat}" />
+                                <CheckBox Content="Magitek Movement (in Autonomous BotBase)" IsChecked="{Binding GeneralSettings.MagitekMovement, Mode=TwoWay}" Style="{DynamicResource CheckBoxFlat}" />
                             </StackPanel>
                             <StackPanel Margin="2" Orientation="Horizontal">
                                 <TextBlock Style="{DynamicResource TextBlockDefault}" Text="Latency Offset (Ping):  " />
                                 <controls:Numeric MaxValue="5000" MinValue="0" Value="{Binding GeneralSettings.UserLatencyOffset, Mode=TwoWay}" />
+                                <TextBlock Style="{DynamicResource TextBlockDefault}" Text=" Move Throttle (ms): " />
+                                <controls:Numeric MaxValue="1000" MinValue="0" Value="{Binding GeneralSettings.MoveThrottle, Mode=TwoWay}" />
+                                <TextBlock Style="{DynamicResource TextBlockDefault}" Text=" Stop Throttle (ms): " />
+                                <controls:Numeric MaxValue="1000" MinValue="0" Value="{Binding GeneralSettings.StopThrottle, Mode=TwoWay}" />
                             </StackPanel>
                         </StackPanel>
                     </controls:SettingsBlock>

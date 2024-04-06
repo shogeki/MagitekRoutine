@@ -3,6 +3,7 @@ using ff14bot.Managers;
 using ff14bot.Objects;
 using Magitek.Utilities;
 using Magitek.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -72,9 +73,30 @@ namespace Magitek.Extensions
             554
         };
 
-        public static int EnemiesInCone(this LocalPlayer player, float maxdistance)
+        public static int EnemiesInCone(this LocalPlayer player, float maxdistance) => player.EnemiesInCone(maxdistance, 0.7853f);
+
+        public static int EnemiesInCone(this LocalPlayer player, float maxdistance, float angleThreshold)
         {
-            return Combat.Enemies.Count(r => r.Distance(Core.Me) <= maxdistance + r.CombatReach && r.RadiansFromPlayerHeading() < 0.9599f);
+            float thresholdInRadians = angleThreshold;
+            if (angleThreshold > 2 * (float)Math.PI)
+            {
+                thresholdInRadians = (float)Math.PI * angleThreshold / 180.0f;
+            }
+
+            return Combat.Enemies.Count(r => r.Distance(Core.Me) <= maxdistance + r.CombatReach && r.RadiansFromPlayerHeading() < thresholdInRadians);
+        }
+
+        public static int EnemiesInCone(this LocalPlayer player, float maxdistance, int angleThreshold)
+        {
+            float thresholdInRadians = angleThreshold;
+            if (angleThreshold > 360)
+            {
+                throw new ArgumentOutOfRangeException(nameof(angleThreshold), "Angle threshold must be between 0 and 360 degrees.");
+            }
+            thresholdInRadians = (float)Math.PI * angleThreshold / 180.0f;
+
+            return player.EnemiesInCone(maxdistance, thresholdInRadians);
         }
     }
+    
 }

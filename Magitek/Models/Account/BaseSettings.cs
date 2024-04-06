@@ -309,9 +309,24 @@ namespace Magitek.Models.Account
         [DefaultValue(1.01f)]
         public float WeightedDistanceMax { get; set; }
 
+
+        #region Movement
         [Setting]
         [DefaultValue(true)]
         public bool MagitekMovement { get; set; }
+
+        [Setting]
+        [DefaultValue(250)]
+        public int StopThrottle { get; set; }
+
+        [Setting]
+        [DefaultValue(500)]
+        public int MoveThrottle { get; set; }
+
+        [Setting]
+        [DefaultValue(500)]
+        public int FaceThrottle { get; set; }
+        #endregion
 
     }
 }

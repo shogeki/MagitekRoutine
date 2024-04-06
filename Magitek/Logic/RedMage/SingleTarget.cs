@@ -151,10 +151,7 @@ namespace Magitek.Logic.RedMage
             if (Core.Me.ClassLevel < 4)
                 if (MovementManager.IsMoving && !Core.Me.HasAura(Auras.Dualcast))
                     return false;
-
-            if (MovementManager.IsMoving && BotManager.Current.IsAutonomous)
-                return false;
-
+ 
             if (Core.Me.HasAura(Auras.Dualcast)
                 && Core.Me.ClassLevel >= 4)
                 return false;
